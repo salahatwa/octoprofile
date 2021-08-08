@@ -1,7 +1,26 @@
 <div class="container">
-    <img src="assets/logo.svg" alt="Logo">
+  <img src="assets/logo.svg" alt="Logo" />
+
+  <ngx-tippy-singleton [singletonProps]="singletonTransitions">
     <div class="cta--section">
-        <a href="#" class="btn--secondary">README.md</a>
-        <a href="#" class="btn--primary">View on GitHub</a>
+      <a
+        href="https://github.com/carlos-dubon/octoprofile/blob/main/README.md"
+        class="btn--secondary"
+        target="_blank"
+        ngxTippy
+        data-tippy-content="Read the docs"
+
+        >README.md</a
+      >
+      <a
+        href="https://github.com/carlos-dubon/octoprofile"
+        class="btn--primary"
+        target="_blank"
+        ngxTippy
+        data-tippy-content="Open the GitHub repo"
+
+        >View on GitHub</a
+      >
     </div>
+  </ngx-tippy-singleton>
 </div>

@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './main/pages/home/home.component';
 import { FooterComponent } from './main/shared/components/footer/footer.component';
 import { HeaderComponent } from './main/shared/components/header/header.component';
+import { NgxTippyModule } from 'ngx-tippy-wrapper';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, FooterComponent, HeaderComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, NgxTippyModule],
   providers: [],
   bootstrap: [AppComponent],
 })
