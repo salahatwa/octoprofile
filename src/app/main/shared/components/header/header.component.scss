@@ -17,6 +17,9 @@
   img {
     height: 28px;
   }
+  .logo{
+    @include flexCenter();
+  }
   .cta--section {
     display: flex;
     gap: 1em;

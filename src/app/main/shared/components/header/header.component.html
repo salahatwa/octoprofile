@@ -1,5 +1,7 @@
 <div class="container">
-  <img src="assets/logo.svg" alt="Logo" />
+  <a [routerLink]="['/']" class="logo"
+    ><img src="assets/logo.svg" alt="Logo"
+  /></a>
 
   <ngx-tippy-singleton [singletonProps]="singletonTransitions">
     <div class="cta--section">
@@ -9,7 +11,6 @@
         target="_blank"
         ngxTippy
         data-tippy-content="Read the docs"
-
         >README.md</a
       >
       <a
@@ -18,7 +19,6 @@
         target="_blank"
         ngxTippy
         data-tippy-content="Open the GitHub repo"
-
         >View on GitHub</a
       >
     </div>

@@ -1,0 +1,35 @@
+@import "../../styles/mixins";
+@import "../../styles/colors";
+
+:host {
+  @include flexCenter();
+  width: 100%;
+  height: 72px;
+  background-color: #000000;
+  color: $grey300;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .built__with {
+    font-weight: normal;
+    font-size: 14px;
+    a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .logo {
+    height: 28px;
+  }
+  .social {
+    display: flex;
+    gap: 1em;
+  }
+}

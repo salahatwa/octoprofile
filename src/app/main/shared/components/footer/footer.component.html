@@ -1,1 +1,33 @@
-<p>footer works!</p>
+<div class="container">
+  <p class="built__with">
+    Built with
+    <a href="https://www.chartjs.org/" target="_blank">Chart.js</a>,
+    <a href="https://github.com/IonicaBizau/node-gh-polyglot" target="_blank"
+      >GitHub Polyglot</a
+    >
+    and more!
+  </p>
+  <a [routerLink]="['/']"
+    ><img class="logo" src="assets/logo-white.svg" alt="Logo"
+  /></a>
+  <ngx-tippy-singleton [singletonProps]="singletonTransitions">
+    <div class="social">
+      <a
+        href="https://www.linkedin.com/in/cdubon/"
+        target="_blank"
+        ngxTippy
+        data-tippy-content="Creator's LinkedIn"
+      >
+        <img src="assets/icons/linkedin-footer.svg" alt="LinkedIn" />
+      </a>
+      <a
+        href="https://github.com/carlos-dubon/octoprofile"
+        target="_blank"
+        ngxTippy
+        data-tippy-content="Open the GitHub repo"
+      >
+        <img src="assets/icons/github-footer.svg" alt="GitHub" />
+      </a>
+    </div>
+  </ngx-tippy-singleton>
+</div>
