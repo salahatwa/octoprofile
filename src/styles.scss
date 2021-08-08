@@ -1,6 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "app/main/shared/styles/colors";
+@import "app/main/shared/styles/mixins";
 
 html,
 body {
+  margin: 0;
+  padding: 0;
   font-family: "Inter", sans-serif;
+}
+
+.container {
+  width: 1196px;
+}
+
+.btn {
+  @mixin button {
+    text-decoration: none;
+    height: 40px;
+    width: fit-content;
+    @include flexCenter();
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0 1.25em;
+    border-radius: 6px;
+  }
+  &--primary {
+    @include button();
+    background-color: $purple;
+    color: #ffffff;
+  }
+  &--secondary {
+    @include button();
+    background-color: $purple100;
+    color: $purple;
+  }
 }
