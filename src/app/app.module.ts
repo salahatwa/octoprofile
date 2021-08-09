@@ -7,10 +7,16 @@ import { HomeComponent } from './main/pages/home/home.component';
 import { FooterComponent } from './main/shared/components/footer/footer.component';
 import { HeaderComponent } from './main/shared/components/header/header.component';
 import { NgxTippyModule } from 'ngx-tippy-wrapper';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, FooterComponent, HeaderComponent],
-  imports: [BrowserModule, AppRoutingModule, NgxTippyModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgxTippyModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
