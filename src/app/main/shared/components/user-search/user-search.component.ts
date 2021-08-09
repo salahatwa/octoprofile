@@ -28,10 +28,6 @@ export class UserSearchComponent implements OnInit {
         ],
       ],
     });
-
-    this.usernameForm.valueChanges.subscribe((val) => {
-      console.log(val);
-    });
   }
 
   public resetInput(): void {
@@ -54,15 +50,16 @@ export class UserSearchComponent implements OnInit {
 
   public submit(): void {
     this.usernameForm.get('username')?.markAsTouched();
-    console.log('Form valid: ', this.usernameForm.valid);
-    console.log('Erros: ', this.usernameForm.controls.username.errors);
+    if (this.usernameForm.valid) {
+      console.log('OK');
+    }
   }
 
   private githubUsernameValidator(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
       // Username may only contain alphanumeric characters or single hyphens, and cannot begin or end with a hyphen.
 
-      const githubUsername: RegExp = /\B@([a-z0-9](?:-?[a-z0-9]){0,38})/;
+      const githubUsername: RegExp = /\B@([A-Za-z0-9](?:-?[A-Za-z0-9]){0,38})/;
       const validUser: RegExpMatchArray = String(`@${control.value}`).match(
         githubUsername
       );
