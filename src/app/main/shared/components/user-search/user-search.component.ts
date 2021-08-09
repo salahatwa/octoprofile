@@ -34,7 +34,6 @@ export class UserSearchComponent implements OnInit {
     });
   }
 
-  // Sets the input to an empty string
   public resetInput(): void {
     this.usernameForm.reset();
   }
@@ -45,7 +44,6 @@ export class UserSearchComponent implements OnInit {
   }
 
   get hasLengthError(): boolean {
-    // Username is too long (maximum is 39 characters).
     return this.usernameForm.get('username')?.errors?.maxlength ? true : false;
   }
 
@@ -60,14 +58,15 @@ export class UserSearchComponent implements OnInit {
     console.log('Erros: ', this.usernameForm.controls.username.errors);
   }
 
-  githubUsernameValidator(): ValidatorFn {
+  private githubUsernameValidator(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
       // Username may only contain alphanumeric characters or single hyphens, and cannot begin or end with a hyphen.
 
-      const regex = /\B@([a-z0-9](?:-?[a-z0-9]){0,38})/;
+      const githubUsername: RegExp = /\B@([a-z0-9](?:-?[a-z0-9]){0,38})/;
       const validUser: RegExpMatchArray = String(`@${control.value}`).match(
-        regex
+        githubUsername
       );
+
       return validUser && String(`@${control.value}`) === validUser[0]
         ? null
         : { unvalidUsername: control.value };
