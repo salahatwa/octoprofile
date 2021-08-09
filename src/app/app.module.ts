@@ -8,9 +8,10 @@ import { FooterComponent } from './main/shared/components/footer/footer.componen
 import { HeaderComponent } from './main/shared/components/header/header.component';
 import { NgxTippyModule } from 'ngx-tippy-wrapper';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserSearchComponent } from './main/shared/components/user-search/user-search.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, FooterComponent, HeaderComponent],
+  declarations: [AppComponent, HomeComponent, FooterComponent, HeaderComponent, UserSearchComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

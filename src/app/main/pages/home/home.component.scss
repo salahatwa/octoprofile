@@ -12,10 +12,13 @@
 
 .main--container {
   width: 100%;
+  min-height: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   h2 {
+    margin: 0;
     @include flexCenter();
     text-align: center;
     width: 343px;
@@ -24,53 +27,6 @@
     line-height: 64px;
     font-feature-settings: "salt" on, "liga" off;
     color: $gray900;
-  }
-}
-
-.search--container {
-  width: 340px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  padding: 22px;
-  box-sizing: border-box;
-  background: #ffffff;
-  box-shadow: 0px 10px 20px rgba(41, 41, 42, 0.07);
-  border-radius: 5px;
-  form {
-    margin: 0 12px;
-    height: 20px;
-    width: 100%;
-  }
-  input {
-    height: 20px;
-    border: none;
-    outline: none;
-    width: 100%;
-    font-family: Inter, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    &::placeholder {
-      color: $gray700;
-    }
-  }
-  .delete {
-    cursor: pointer;
-  }
-}
-
-.error--section {
-  display: flex;
-  align-items: center;
-  p {
-    max-width: 420px;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 24px;
-    font-feature-settings: "salt" on, "liga" off;
-    margin-left: 14px;
-    color: #c72393;
   }
 }
 
