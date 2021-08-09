@@ -6,6 +6,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'user-search',
@@ -15,7 +16,7 @@ import {
 export class UserSearchComponent implements OnInit {
   public usernameForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.usernameForm = this.fb.group({
@@ -51,7 +52,8 @@ export class UserSearchComponent implements OnInit {
   public submit(): void {
     this.usernameForm.get('username')?.markAsTouched();
     if (this.usernameForm.valid) {
-      console.log('OK');
+      const username: string = this.usernameForm.get('username').value;
+      this.router.navigate(['user'], { queryParams: { id: username } });
     }
   }
 

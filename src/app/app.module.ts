@@ -9,9 +9,10 @@ import { HeaderComponent } from './main/shared/components/header/header.componen
 import { NgxTippyModule } from 'ngx-tippy-wrapper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserSearchComponent } from './main/shared/components/user-search/user-search.component';
+import { UserComponent } from './main/pages/user/user.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, FooterComponent, HeaderComponent, UserSearchComponent],
+  declarations: [AppComponent, HomeComponent, FooterComponent, HeaderComponent, UserSearchComponent, UserComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
