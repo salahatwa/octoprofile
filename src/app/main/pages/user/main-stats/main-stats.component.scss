@@ -1,4 +1,6 @@
 @import "./../../../shared/styles/_mixins.scss";
+@import "./../../../shared/styles/_colors.scss";
+
 :host {
   @include flexCenter();
   height: 255px;
@@ -27,6 +29,27 @@ $size: 255px;
     .content {
       position: absolute;
       z-index: 6;
+      display: flex;
+      flex-direction: column;
+      h4,
+      p {
+        margin: 0;
+        padding: 0;
+      }
+      h4 {
+        font-weight: 800;
+        font-size: 48px;
+        line-height: 64px;
+        color: $gray900;
+        text-align: center;
+      }
+      p {
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 32px;
+        color: $gray900;
+        text-align: center;
+      }
     }
   }
 }
