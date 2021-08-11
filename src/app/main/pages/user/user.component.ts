@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,12 +9,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserComponent implements OnInit {
   public id: string;
+  public photo: string = 'assets/me.png';
+  public name: string = 'Carlos Dubón';
+  public githubUrl: string = 'https://google.com';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private titleService: Title) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       this.id = params['id'];
     });
+
+    this.titleService.setTitle(`OctoProfile | ${this.id}`);
   }
 }

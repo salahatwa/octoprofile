@@ -1,1 +1,41 @@
-<p>user works!</p>
+<title>Hols</title>
+<div class="hero--wrapper">
+  <div class="hero--main">
+    <div class="container">
+      <div class="github__repo--container">
+        <a
+          ngxTippy
+          data-tippy-content="Open the GitHub repo"
+          href="https://github.com/carlos-dubon/octoprofile"
+          [tippyProps]="{
+            animation: 'shift-away',
+            interactiveBorder: 30,
+            interactiveDebounce: 75,
+            theme: 'dark',
+            offset: [0, 15],
+            arrow: true,
+            moveTransition: 'transform 0.4s ease-in-out'
+          }"
+          target="_blank"
+          class="github__repo--cta"
+        >
+          <img src="assets/icons/github-hero.svg" alt="github" />
+          <p>View on GitHub</p>
+        </a>
+      </div>
+      <div class="profile--photo">
+        <div class="photo--container">
+          <img [src]="photo" alt="user" class="photo" />
+        </div>
+      </div>
+      <div class="name">
+        <h2>
+          {{ name }}
+        </h2>
+        <a [href]="githubUrl" target="_blank">@{{ id }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fill"></div>
