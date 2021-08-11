@@ -1,0 +1,32 @@
+@import "./../../../shared/styles/_mixins.scss";
+:host {
+  @include flexCenter();
+  height: 255px;
+  transform: translateY(-50%);
+  margin-bottom: calc(-1 * 255px / 2);
+}
+
+$size: 255px;
+
+.main--wrapper {
+  display: flex;
+  gap: 30px;
+  .stat--wrapper {
+    @include flexCenter();
+    position: relative;
+    width: $size;
+    height: $size;
+    .polygon {
+      position: absolute;
+      z-index: 5;
+      width: $size;
+      height: $size;
+      -webkit-filter: drop-shadow(0px 10px 20px rgba(41, 41, 42, 0.07));
+      filter: drop-shadow(0px 10px 20px rgba(41, 41, 42, 0.07));
+    }
+    .content {
+      position: absolute;
+      z-index: 6;
+    }
+  }
+}
