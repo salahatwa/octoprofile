@@ -20,7 +20,7 @@ $size: 255px;
     height: $size;
     .polygon {
       position: absolute;
-      z-index: 5;
+      z-index: 13;
       width: $size;
       height: $size;
       -webkit-filter: drop-shadow(0px 10px 20px rgba(41, 41, 42, 0.07));
@@ -28,11 +28,13 @@ $size: 255px;
     }
     .content {
       position: absolute;
-      z-index: 6;
+      z-index: 14;
       display: flex;
       flex-direction: column;
+      align-items: center;
       h4,
       p {
+        @include flexCenter();
         margin: 0;
         padding: 0;
       }
