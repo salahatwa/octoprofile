@@ -32,7 +32,36 @@
         <h2>
           {{ name }}
         </h2>
-        <a [href]="githubUrl" target="_blank">@{{ id }}</a>
+        <a
+          ngxTippy
+          data-tippy-content="View GitHub profile"
+          [tippyProps]="{
+            animation: 'shift-away',
+            interactiveBorder: 30,
+            interactiveDebounce: 75,
+            theme: 'light',
+            offset: [0, 15],
+            arrow: true,
+            moveTransition: 'transform 0.4s ease-in-out'
+          }"
+          [href]="githubUrl"
+          target="_blank"
+          >@{{ id }}</a
+        >
+      </div>
+      <div class="user--info">
+        <div class="workplace">
+          <img src="assets/icons/work.svg" alt="workplace" />
+          @{{ workplace }}
+        </div>
+        <div class="location">
+          <img src="assets/icons/gps.svg" alt="location" />
+          {{ location }}
+        </div>
+        <div class="creation__date">
+          <img src="assets/icons/calendar.svg" alt="creation date" />
+          Joined {{ creationDate | date }}
+        </div>
       </div>
     </div>
   </div>
