@@ -1,4 +1,4 @@
-export default interface UserI {
+export interface UserI {
   login: string;
   id: number;
   node_id: string;
@@ -31,4 +31,10 @@ export default interface UserI {
   following: number;
   created_at: Date;
   updated_at: Date;
+}
+
+export interface UserMainStatsI {
+  repositories: number;
+  followers: number;
+  following: number;
 }

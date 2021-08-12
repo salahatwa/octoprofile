@@ -1,8 +1,9 @@
+import { UserMainStatsI } from './../../models/user.model';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import UserI from '../../models/user.model';
+import { UserI } from '../../models/user.model';
 
 @Component({
   selector: 'app-user',
@@ -11,12 +12,18 @@ import UserI from '../../models/user.model';
 })
 export class UserComponent implements OnInit {
   public id: string;
-  public photo: string = 'assets/me.png';
-  public name: string = 'Carlos Dubón';
+  public photo: string;
+  public name: string;
   public githubUrl: string;
-  public workplace: string = 'Freelance';
-  public location: string = 'Guatemala';
-  public creationDate: Date = new Date();
+  public workplace: string;
+  public location: string;
+  public creationDate: Date;
+
+  public repositories: number;
+  public followers: number;
+  public following: number;
+
+  public userMainStats: UserMainStatsI;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,10 +38,21 @@ export class UserComponent implements OnInit {
 
     this.githubUrl = `https://github.com/${this.id}`;
 
+    // Change the title of the current page
     this.titleService.setTitle(`OctoProfile | ${this.id}`);
 
     this.userService.getUserData(this.id).subscribe((data: UserI) => {
-      console.log(data.followers);
+      this.photo = data.avatar_url;
+      this.name = data.name;
+      this.workplace = data.company;
+      this.location = data.location;
+      this.creationDate = data.created_at;
+
+      this.userMainStats = {
+        repositories: data.public_repos,
+        followers: data.followers,
+        following: data.following,
+      };
     });
   }
 }

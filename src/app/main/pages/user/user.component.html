@@ -50,15 +50,15 @@
         >
       </div>
       <div class="user--info">
-        <div class="workplace">
+        <div *ngIf="workplace" class="workplace">
           <img src="assets/icons/work.svg" alt="workplace" />
-          @{{ workplace }}
+          {{ workplace }}
         </div>
-        <div class="location">
+        <div *ngIf="location" class="location">
           <img src="assets/icons/gps.svg" alt="location" />
           {{ location }}
         </div>
-        <div class="creation__date">
+        <div *ngIf="creationDate" class="creation__date">
           <img src="assets/icons/calendar.svg" alt="creation date" />
           Joined {{ creationDate | date }}
         </div>
@@ -66,6 +66,6 @@
     </div>
   </div>
 </div>
-<main-stats></main-stats>
+<main-stats [userMainStats]="userMainStats"></main-stats>
 hellw
 <div class="fill"></div>

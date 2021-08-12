@@ -2,7 +2,7 @@
   <div class="stat--wrapper">
     <img class="polygon" src="assets/polygon.svg" alt="polygon" />
     <div class="content">
-      <h4>0</h4>
+      <h4>{{ repositories | number: "1.0":"en-US" }}</h4>
       <p>Repositories</p>
     </div>
   </div>
@@ -10,7 +10,7 @@
   <div class="stat--wrapper">
     <img class="polygon" src="assets/polygon.svg" alt="polygon" />
     <div class="content">
-      <h4>0</h4>
+      <h4>{{ followers | number: "1.0":"en-US" }}</h4>
       <p>Followers</p>
     </div>
   </div>
@@ -18,7 +18,7 @@
   <div class="stat--wrapper">
     <img class="polygon" src="assets/polygon.svg" alt="polygon" />
     <div class="content">
-      <h4>0</h4>
+      <h4>{{ following | number: "1.0":"en-US" }}</h4>
       <p>Following</p>
     </div>
   </div>
