@@ -11,14 +11,24 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserSearchComponent } from './main/shared/components/user-search/user-search.component';
 import { UserComponent } from './main/pages/user/user.component';
 import { MainStatsComponent } from './main/pages/user/main-stats/main-stats.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, FooterComponent, HeaderComponent, UserSearchComponent, UserComponent, MainStatsComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    FooterComponent,
+    HeaderComponent,
+    UserSearchComponent,
+    UserComponent,
+    MainStatsComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxTippyModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
