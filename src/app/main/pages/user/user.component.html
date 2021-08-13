@@ -25,7 +25,13 @@
       </div>
       <div class="profile--photo">
         <div class="photo--container">
-          <img loading="lazy" [src]="photo" [alt]="id" class="photo" />
+          <img
+            *ngIf="photo"
+            loading="lazy"
+            [src]="photo"
+            [alt]="id"
+            class="photo"
+          />
         </div>
       </div>
       <div class="name">
