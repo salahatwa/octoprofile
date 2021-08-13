@@ -25,7 +25,7 @@
       </div>
       <div class="profile--photo">
         <div class="photo--container">
-          <img [src]="photo" alt="user" class="photo" />
+          <img loading="lazy" [src]="photo" [alt]="id" class="photo" />
         </div>
       </div>
       <div class="name">
@@ -67,5 +67,5 @@
   </div>
 </div>
 <main-stats [userMainStats]="userMainStats"></main-stats>
-hellw
+<app-charts></app-charts>
 <div class="fill"></div>

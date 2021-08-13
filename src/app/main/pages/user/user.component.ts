@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { UserI } from '../../models/user.model';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-user',
@@ -41,18 +42,23 @@ export class UserComponent implements OnInit {
     // Change the title of the current page
     this.titleService.setTitle(`OctoProfile | ${this.id}`);
 
-    this.userService.getUserData(this.id).subscribe((data: UserI) => {
-      this.photo = data.avatar_url;
-      this.name = data.name;
-      this.workplace = data.company;
-      this.location = data.location;
-      this.creationDate = data.created_at;
+    this.userService.getUserData(this.id).subscribe(
+      (data: UserI) => {
+        this.photo = data.avatar_url;
+        this.name = data.name;
+        this.workplace = data.company;
+        this.location = data.location;
+        this.creationDate = data.created_at;
 
-      this.userMainStats = {
-        repositories: data.public_repos,
-        followers: data.followers,
-        following: data.following,
-      };
-    });
+        this.userMainStats = {
+          repositories: data.public_repos,
+          followers: data.followers,
+          following: data.following,
+        };
+      },
+      (err: HttpErrorResponse) => {
+        // Handle errors here, like sending the user to another route
+      }
+    );
   }
 }
