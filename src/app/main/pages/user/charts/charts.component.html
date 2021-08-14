@@ -10,9 +10,9 @@
         <p>Your most used languages</p>
       </div>
       <div class="chart">
-        <canvas
+        <canvas *ngIf="languagePerRepoList"
           baseChart
-          [data]="pieChartData"
+          [data]="languagePerRepoList"
           [labels]="pieChartLabels"
           [chartType]="pieChartType"
           [options]="topLanguagesChartOptions"

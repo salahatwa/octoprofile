@@ -41,6 +41,8 @@ export class ChartsComponent implements OnInit {
   public pieChartLegend = true;
   public pieChartPlugins = [];
 
+  public languagePerRepoList: SingleDataSet = [10, 20, 30];
+
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       const id: string = params['id'];
