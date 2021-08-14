@@ -13,6 +13,7 @@ import { UserComponent } from './main/pages/user/user.component';
 import { MainStatsComponent } from './main/pages/user/main-stats/main-stats.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsComponent } from './main/pages/user/charts/charts.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ChartsComponent } from './main/pages/user/charts/charts.component';
     NgxTippyModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

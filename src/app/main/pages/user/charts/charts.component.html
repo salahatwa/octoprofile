@@ -9,6 +9,18 @@
         <h4>Top Languages</h4>
         <p>Your most used languages</p>
       </div>
+      <div class="chart">
+        <canvas
+          baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          [options]="topLanguagesChartOptions"
+          [plugins]="pieChartPlugins"
+          [legend]="pieChartLegend"
+        >
+        </canvas>
+      </div>
     </div>
     <div class="chart--card">
       <div class="card--heading">
