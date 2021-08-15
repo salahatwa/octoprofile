@@ -24,8 +24,8 @@ export class UserService {
 
         // forkJoin will emit the result as (RepositoryI[][]) once all the sub-observables are completed:
         return forkJoin(
-          Array.from(new Array(pages)).map((_, page) =>
-            this.http.get<any[]>(
+          Array.from(new Array(pages)).map((_, page: number) =>
+            this.http.get<RepositoryI[]>(
               `https://api.github.com/users/${user}/repos?page=${
                 page + 1
               }&per_page=100`
@@ -33,8 +33,8 @@ export class UserService {
           )
         ).pipe(
           // will reduce the RepositoryI[][] to be RepositoryI[] after concating them to each other:
-          map((res) =>
-            res.reduce((acc, value) => {
+          map((res: RepositoryI[][]) =>
+            res.reduce((acc: RepositoryI[], value: RepositoryI[]) => {
               return acc.concat(value);
             }, [])
           )

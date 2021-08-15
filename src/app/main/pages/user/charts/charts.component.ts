@@ -22,32 +22,19 @@ export class ChartsComponent implements OnInit {
     monkeyPatchChartJsLegend();
   }
 
-  public repositories: any[] = [];
+  public repositories: RepositoryI[] = [];
 
-  // Pie
+  // Top Languages Chart
   public topLanguagesChartOptions: ChartOptions = {
     responsive: true,
     legend: {
       position: 'right',
     },
   };
-
-  public pieChartType: ChartType = 'pie';
-  public pieChartLegend = true;
-  public pieChartPlugins = [];
-
-  public labels: Label[];
-  public instances: SingleDataSet;
-
-  public pieChartColors = [
-    {
-      backgroundColor: [
-        'rgba(255,0,0,0.3)',
-        'rgba(0,255,0,0.3)',
-        'rgba(0,0,255,0.3)',
-      ],
-    },
-  ];
+  public topLanaguagesChartData: SingleDataSet;
+  public topLanaguagesChartLabels: Label[];
+  public topLanguagesChartType: ChartType = 'pie';
+  public topLanguagesChartColors;
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
@@ -55,12 +42,17 @@ export class ChartsComponent implements OnInit {
 
       this.userService.getUserRepos(id).subscribe((repos: RepositoryI[]) => {
         this.repositories = repos;
-        this.labels = this.buildTopLanguagesChart(
+
+        const mostUsedLanguagesData = this.buildTopLanguagesChart(
           this.repositories
-        )[0] as Label[];
-        this.instances = this.buildTopLanguagesChart(
-          this.repositories
-        )[1] as SingleDataSet;
+        );
+        this.topLanaguagesChartLabels = mostUsedLanguagesData[0] as Label[];
+        this.topLanaguagesChartData = mostUsedLanguagesData[1] as SingleDataSet;
+        this.topLanguagesChartColors = [
+          {
+            backgroundColor: mostUsedLanguagesData[2] as string[],
+          },
+        ];
       });
     });
   }
@@ -103,13 +95,15 @@ export class ChartsComponent implements OnInit {
     // Clear the arrays
     uniq = [];
     instances = [];
+    let colors: string[] = [];
 
     // Build the arrays to be returned
     languageStats.forEach((langStat: LanguageStat) => {
       uniq.push(langStat.name);
       instances.push(langStat.quantity);
+      colors.push(langStat.color);
     });
 
-    return [uniq, instances];
+    return [uniq, instances, colors];
   }
 }

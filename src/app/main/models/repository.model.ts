@@ -1,3 +1,4 @@
+import { generateRandomRGBAColor, languageColors } from './language.colors';
 import { LicenseI } from './license.model';
 import { OwnerI } from './user.model';
 
@@ -80,13 +81,10 @@ export interface RepositoryI {
 export class LanguageStat {
   name: string;
   quantity: number;
+  color: string;
   constructor(name: string, quantity: number) {
     this.name = name;
     this.quantity = quantity;
+    this.color = languageColors[this.name] || generateRandomRGBAColor();
   }
 }
-
-export const languageColors = {
-  JavaScript: 'rgba(239, 216, 29, 1)',
-  TypeScript: 'rgba(49, 120, 198, 1)',
-};

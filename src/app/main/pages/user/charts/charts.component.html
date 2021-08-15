@@ -10,15 +10,15 @@
         <p>Your most used languages</p>
       </div>
       <div class="chart">
-        <canvas *ngIf="instances"
+        <canvas
+          *ngIf="topLanaguagesChartData"
           baseChart
-          [data]="instances"
-          [labels]="labels"
-          [chartType]="pieChartType"
+          [data]="topLanaguagesChartData"
+          [labels]="topLanaguagesChartLabels"
+          [chartType]="topLanguagesChartType"
           [options]="topLanguagesChartOptions"
-          [plugins]="pieChartPlugins"
-          [legend]="pieChartLegend"
-          [colors]="pieChartColors"
+          legend="true"
+          [colors]="topLanguagesChartColors"
         >
         </canvas>
       </div>
