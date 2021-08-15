@@ -30,6 +30,7 @@ export class ChartsComponent implements OnInit {
     legend: {
       position: 'right',
     },
+    aspectRatio: 1,
   };
   public topLanaguagesChartData: SingleDataSet;
   public topLanaguagesChartLabels: Label[];
@@ -50,19 +51,22 @@ export class ChartsComponent implements OnInit {
         this.topLanaguagesChartData = mostUsedLanguagesData[1] as SingleDataSet;
         this.topLanguagesChartColors = [
           {
-            backgroundColor: mostUsedLanguagesData[2] as string[],
+            backgroundColor: mostUsedLanguagesData[2],
           },
         ];
       });
     });
   }
 
-  public buildTopLanguagesChart(repos: RepositoryI[]) {
+  public buildTopLanguagesChart(
+    repos: RepositoryI[]
+  ): [string[], number[], string[]] {
     // Get only a languages array
     let languages: string[] = [];
 
     repos.forEach((repo: RepositoryI) => {
-      languages.push(repo.language);
+      // If the repo is not a fork
+      if (!repo.fork) languages.push(repo.language);
     });
 
     // List containing all the languages the user uses
@@ -85,12 +89,12 @@ export class ChartsComponent implements OnInit {
       languageStats.push(new LanguageStat(lang, instances[index]));
     });
 
-    // Sort by quantity and stay with the top 6
+    // Sort by quantity and stay with the top 10
     languageStats = languageStats
       .sort((a: LanguageStat, b: LanguageStat) =>
         a.quantity < b.quantity ? 1 : -1
       )
-      .slice(0, 6);
+      .slice(0, 10);
 
     // Clear the arrays
     uniq = [];
