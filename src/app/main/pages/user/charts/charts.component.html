@@ -10,14 +10,15 @@
         <p>Your most used languages</p>
       </div>
       <div class="chart">
-        <canvas *ngIf="languagePerRepoList"
+        <canvas *ngIf="instances"
           baseChart
-          [data]="languagePerRepoList"
-          [labels]="pieChartLabels"
+          [data]="instances"
+          [labels]="labels"
           [chartType]="pieChartType"
           [options]="topLanguagesChartOptions"
           [plugins]="pieChartPlugins"
           [legend]="pieChartLegend"
+          [colors]="pieChartColors"
         >
         </canvas>
       </div>
@@ -25,7 +26,7 @@
     <div class="chart--card">
       <div class="card--heading">
         <h4>Most starred</h4>
-        <p>Your most starred languages</p>
+        <p>Your most starred repositories</p>
       </div>
     </div>
     <div class="chart--card">
