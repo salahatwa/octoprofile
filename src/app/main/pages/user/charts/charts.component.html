@@ -15,9 +15,8 @@
           baseChart
           [data]="topLanaguagesChartData"
           [labels]="topLanaguagesChartLabels"
-          [chartType]="topLanguagesChartType"
+          chartType="pie"
           [options]="topLanguagesChartOptions"
-          legend="true"
           [colors]="topLanguagesChartColors"
         >
         </canvas>
@@ -27,6 +26,18 @@
       <div class="card--heading">
         <h4>Most starred</h4>
         <p>Your most starred repositories</p>
+      </div>
+      <div class="chart">
+        <canvas
+          *ngIf="mostStarredReposCharData"
+          baseChart
+          [data]="mostStarredReposCharData"
+          [labels]="mostStarredReposChartLabels"
+          [options]="mostStarredReposChartOptions"
+          [colors]="mostStarredReposChartColors"
+          chartType="bar"
+        >
+        </canvas>
       </div>
     </div>
     <div class="chart--card">

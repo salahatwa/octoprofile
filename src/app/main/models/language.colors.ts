@@ -10,6 +10,7 @@ export const languageColors = {
   Go: `rgba(0,167,208,${opacity})`,
   'Jupyter Notebook': `rgba(235,115,37,${opacity})`,
   CSS: `rgba(40,98,233,${opacity})`,
+  SCSS: `rgba(232,95,141,${opacity})`,
   'Objective-C': `rgba(24,119,221,${opacity})`,
   Elixir: `rgba(99,48,148,${opacity})`,
   Svelte: `rgba(247,58,0,${opacity})`,
@@ -46,3 +47,11 @@ export function generateRandomRGBAColor(): string {
   const b = randomBetween(0, 255);
   return `rgba(${r},${g},${b},${opacity})`;
 }
+
+export const mostStarredReposChartColors: string[] = [
+  `rgba(255,70,110,${opacity})`,
+  `rgba(56,113,190,${opacity})`,
+  `rgba(230,218,53,${opacity})`,
+  `rgba(30,172,92,${opacity})`,
+  `rgba(100,170,210,${opacity})`,
+];
