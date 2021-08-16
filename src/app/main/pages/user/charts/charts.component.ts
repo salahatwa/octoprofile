@@ -10,9 +10,11 @@ import {
   Label,
   monkeyPatchChartJsLegend,
   monkeyPatchChartJsTooltip,
+  Colors,
 } from 'ng2-charts';
 import {
   buildMostStarredRepositoriesChart,
+  buildStarsPerLanguageChart,
   buildTopLanguagesChart,
 } from './builders/builders';
 
@@ -40,7 +42,7 @@ export class ChartsComponent implements OnInit {
   };
   public topLanaguagesChartData: SingleDataSet;
   public topLanaguagesChartLabels: Label[];
-  public topLanguagesChartColors;
+  public topLanguagesChartColors: Colors;
 
   // Most Starred Repos Chart
   public mostStarredReposChartOptions: ChartOptions = {
@@ -60,8 +62,13 @@ export class ChartsComponent implements OnInit {
     },
   };
   public mostStarredReposChartLabels: Label[];
-  public mostStarredReposCharData;
-  public mostStarredReposChartColors;
+  public mostStarredReposCharData: SingleDataSet;
+  public mostStarredReposChartColors: Colors;
+
+  // Stars per Language Chart
+  public starsPerLanguageChartLabels: Label[];
+  public starsPerLanguageChartData: SingleDataSet;
+  public starsPerLanguageChartColors: Colors;
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
@@ -78,7 +85,7 @@ export class ChartsComponent implements OnInit {
           {
             backgroundColor: mostUsedLanguagesData[2],
           },
-        ];
+        ] as Colors;
 
         // Building most starred repos chart
         const mostStarredReposChartData = buildMostStarredRepositoriesChart(
@@ -86,12 +93,26 @@ export class ChartsComponent implements OnInit {
         );
         this.mostStarredReposChartLabels =
           mostStarredReposChartData[0] as Label[];
-        this.mostStarredReposCharData = mostStarredReposChartData[1];
+        this.mostStarredReposCharData =
+          mostStarredReposChartData[1] as SingleDataSet;
         this.mostStarredReposChartColors = [
           {
             backgroundColor: mostStarredReposChartColors,
           },
-        ];
+        ] as Colors;
+
+        // Building stars per language chart
+        const starsPerLanguageData = buildStarsPerLanguageChart(
+          this.repositories
+        );
+        this.starsPerLanguageChartLabels = starsPerLanguageData[0] as Label[];
+        this.starsPerLanguageChartData =
+          starsPerLanguageData[1] as SingleDataSet;
+        this.starsPerLanguageChartColors = [
+          {
+            backgroundColor: starsPerLanguageData[2],
+          },
+        ] as Colors;
       });
     });
   }

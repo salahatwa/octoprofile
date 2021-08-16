@@ -45,6 +45,18 @@
         <h4>Stars per Language</h4>
         <p>Number of stars per language</p>
       </div>
+      <div class="chart">
+        <canvas
+          baseChart
+          *ngIf="starsPerLanguageChartData"
+          [data]="starsPerLanguageChartData"
+          [options]="topLanguagesChartOptions"
+          [labels]="starsPerLanguageChartLabels"
+          [colors]="starsPerLanguageChartColors"
+          chartType="doughnut"
+        >
+        </canvas>
+      </div>
     </div>
   </div>
 </div>

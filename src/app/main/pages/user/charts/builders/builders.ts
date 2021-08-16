@@ -1,4 +1,8 @@
 import {
+  generateRandomRGBAColor,
+  languageColors,
+} from './../../../../models/language.colors';
+import {
   LanguageStat,
   RepositoryI,
 } from 'src/app/main/models/repository.model';
@@ -81,4 +85,52 @@ export function buildMostStarredRepositoriesChart(
   });
 
   return [labels, stars];
+}
+
+export function buildStarsPerLanguageChart(
+  repos: RepositoryI[]
+): [string[], number[], string[]] {
+  // Get only a languages array
+  let languages: string[] = [];
+
+  repos.forEach((repo: RepositoryI) => {
+    // If the repo is not a fork
+    if (!repo.fork) languages.push(repo.language);
+  });
+
+  // List containing all the languages the user uses
+  let uniq: string[] = [...new Set(languages)];
+  // Remove null elements from the list
+  uniq = uniq.filter((s: string) => s);
+
+  let starsPerLanguage = [];
+
+  uniq.forEach((lang: string) => {
+    let counter: number = 0;
+    repos.forEach((repo: RepositoryI) => {
+      if (repo.language === lang) counter += repo.stargazers_count;
+    });
+    starsPerLanguage.push({
+      languageName: lang,
+      stargazers: counter,
+    });
+  });
+
+  starsPerLanguage = starsPerLanguage
+    .sort((a, b) => (a.stargazers < b.stargazers ? 1 : -1))
+    .slice(0, 10); // Sort by number of stargazers and keep a max of 10
+
+  let labels: string[] = [];
+  let stargazers: number[] = [];
+  let colors: string[] = [];
+
+  starsPerLanguage.forEach((langData) => {
+    labels.push(langData.languageName);
+    stargazers.push(langData.stargazers);
+    colors.push(
+      languageColors[langData.languageName] || generateRandomRGBAColor()
+    );
+  });
+
+  return [labels, stargazers, colors];
 }
