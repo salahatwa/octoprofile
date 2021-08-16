@@ -37,6 +37,7 @@ export const languageColors = {
   PowerShell: `rgba(66,112,195,${opacity})`,
   Kotlin: `rgba(242,134,12,${opacity})`,
   PLpgSQL: `rgba(49,100,140,${opacity})`,
+  Pug: `rgba(83,49,42,${opacity})`,
 };
 
 export function generateRandomRGBAColor(): string {
