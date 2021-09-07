@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./repos.component.scss'],
 })
 export class ReposComponent implements OnInit {
+  @ViewChild('menuBtn') menu: ElementRef<HTMLElement>;
+  menuOpened: boolean = false;
+
   currentFilter: string = 'Stars';
 
   reposForm: FormGroup;
@@ -19,7 +22,18 @@ export class ReposComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  resetInput(): void {
-    this.reposForm.get('input').reset();
+  openMenu(): void {
+    // Toggle the menu
+    this.menuOpened ? (this.menuOpened = false) : (this.menuOpened = true);
+
+    if (this.menuOpened) {
+      // Open the menu animation
+      this.menu.nativeElement.classList.remove('rotate--animation__out');
+      this.menu.nativeElement.classList.add('rotate--animation__in');
+    } else {
+      // Close the menu animation
+      this.menu.nativeElement.classList.remove('rotate--animation__in');
+      this.menu.nativeElement.classList.add('rotate--animation__out');
+    }
   }
 }

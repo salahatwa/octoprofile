@@ -16,7 +16,7 @@
       </form>
       <svg
         *ngIf="this.reposForm.get('input').value"
-        (click)="resetInput()"
+        (click)="reposForm.get('input').reset()"
         class="delete"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -31,9 +31,11 @@
         />
       </svg>
       <div class="vertical--separator"></div>
-      <p class="current--filter">{{ currentFilter }}</p>
-      <div class="select--arrow">
-        <img src="assets/select-arrow.svg" alt="arrow" />
+      <div class="current__filter--box" (click)="openMenu()">
+        <p class="current--filter">{{ currentFilter }}</p>
+        <div #menuBtn class="select--arrow">
+          <img src="assets/select-arrow.svg" alt="arrow" />
+        </div>
       </div>
     </div>
   </div>

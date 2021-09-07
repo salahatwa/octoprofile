@@ -80,13 +80,51 @@
     height: 38px;
     margin-left: 22px;
   }
+  .current__filter--box {
+    cursor: pointer;
+    margin-left: 22px;
+    display: flex;
+    align-items: center;
+  }
   .current--filter {
-    cursor: default;
     font-size: 16px;
     line-height: 24px;
-    margin: 0 22px;
+    margin-right: 22px;
+    font-weight: 400;
   }
   .select--arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
+    user-select: none;
+  }
+}
+
+.rotate--animation__in {
+  animation: fancyRotateIn 0.2s forwards ease-in-out;
+}
+
+.rotate--animation__out {
+  animation: fancyRotateOut 0.2s forwards ease-in-out;
+}
+
+@keyframes fancyRotateIn {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes fancyRotateOut {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
