@@ -73,4 +73,20 @@
     min-width: 20px;
     min-height: 20px;
   }
+  .vertical--separator {
+    background-color: #e7e7e9;
+    min-width: 2px;
+    width: 2px;
+    height: 38px;
+    margin-left: 22px;
+  }
+  .current--filter {
+    cursor: default;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0 22px;
+  }
+  .select--arrow {
+    cursor: pointer;
+  }
 }

@@ -6,14 +6,21 @@
     </div>
     <div class="search--container">
       <img src="assets/icons/search.svg" alt="search" />
-      <form>
+      <form [formGroup]="reposForm">
         <input
+          formControlName="input"
           type="text"
           placeholder="The name of the repository"
           spellcheck="false"
         />
       </form>
-      <svg class="delete" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        *ngIf="this.reposForm.get('input').value"
+        (click)="resetInput()"
+        class="delete"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <rect width="20" height="20" rx="10" fill="#E0E0E0" />
         <path
           fill-rule="evenodd"
@@ -23,6 +30,11 @@
           fill-opacity="0.6"
         />
       </svg>
+      <div class="vertical--separator"></div>
+      <p class="current--filter">{{ currentFilter }}</p>
+      <div class="select--arrow">
+        <img src="assets/select-arrow.svg" alt="arrow" />
+      </div>
     </div>
   </div>
 </div>
