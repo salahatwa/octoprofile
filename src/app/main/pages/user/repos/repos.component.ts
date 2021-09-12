@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-repos',
@@ -10,7 +11,7 @@ export class ReposComponent implements OnInit {
   @ViewChild('menuBtn') menu: ElementRef<HTMLElement>;
   menuOpened: boolean = false;
 
-  currentFilter: string = 'Stars';
+  currentFilter: BehaviorSubject<string> = new BehaviorSubject('Stars');
 
   reposForm: FormGroup;
 
@@ -22,18 +23,13 @@ export class ReposComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  openMenu(): void {
+  toggleMenu(): void {
     // Toggle the menu
-    this.menuOpened ? (this.menuOpened = false) : (this.menuOpened = true);
+    this.menuOpened = this.menuOpened ? false : true;
+  }
 
-    if (this.menuOpened) {
-      // Open the menu animation
-      this.menu.nativeElement.classList.remove('rotate--animation__out');
-      this.menu.nativeElement.classList.add('rotate--animation__in');
-    } else {
-      // Close the menu animation
-      this.menu.nativeElement.classList.remove('rotate--animation__in');
-      this.menu.nativeElement.classList.add('rotate--animation__out');
-    }
+  setFilter(filter: string): void {
+    this.currentFilter.next(filter);
+    this.toggleMenu();
   }
 }

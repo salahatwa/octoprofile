@@ -31,12 +31,58 @@
         />
       </svg>
       <div class="vertical--separator"></div>
-      <div class="current__filter--box" (click)="openMenu()">
-        <p class="current--filter">{{ currentFilter }}</p>
-        <div #menuBtn class="select--arrow">
+      <div class="current__filter--box" (click)="toggleMenu()">
+        <p class="current--filter">{{ currentFilter.value }}</p>
+        <div
+          #menuBtn
+          [ngClass]="{
+            'select--arrow': true,
+            'rotate--animation__in': menuOpened,
+            'rotate--animation__out': !menuOpened
+          }"
+        >
           <img src="assets/select-arrow.svg" alt="arrow" />
         </div>
       </div>
+
+      <div
+        [ngClass]="{
+          'filter__options--wrapper': true,
+          'hide--dropdown__menu': !menuOpened
+        }"
+      >
+        <div
+          (click)="setFilter('Stars')"
+          [ngClass]="{
+            option: true,
+            'option--active': currentFilter.value == 'Stars' ? true : false
+          }"
+        >
+          Stars
+        </div>
+        <div
+          (click)="setFilter('Forks')"
+          [ngClass]="{
+            option: true,
+            'option--active': currentFilter.value == 'Forks' ? true : false
+          }"
+        >
+          Forks
+        </div>
+        <div
+          (click)="setFilter('Size')"
+          [ngClass]="{
+            option: true,
+            'option--active': currentFilter.value == 'Size' ? true : false
+          }"
+        >
+          Size
+        </div>
+      </div>
+    </div>
+    <div class="pattern">
+      <img src="assets/repos-pattern.svg" alt="pattern" />
     </div>
   </div>
+
 </div>
