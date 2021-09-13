@@ -1,7 +1,7 @@
 import { RepositoryI } from './../models/repository.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable, forkJoin, Subject } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 import { UserI } from '../models/user.model';
 
@@ -10,6 +10,9 @@ import { UserI } from '../models/user.model';
 })
 export class UserService {
   constructor(private http: HttpClient) {}
+
+  // Global repos
+  public repos: Subject<RepositoryI[]> = new Subject();
 
   public getUserData(user: string): Observable<UserI> {
     return this.http.get<UserI>(`https://api.github.com/users/${user}`);

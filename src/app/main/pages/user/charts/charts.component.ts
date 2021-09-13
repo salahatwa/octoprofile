@@ -75,6 +75,7 @@ export class ChartsComponent implements OnInit {
       const id: string = params['id'];
 
       this.userService.getUserRepos(id).subscribe((repos: RepositoryI[]) => {
+        this.userService.repos.next(repos);
         this.repositories = repos;
 
         // Building most used languages chart

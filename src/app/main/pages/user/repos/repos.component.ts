@@ -1,3 +1,4 @@
+import { UserService } from './../../../services/user.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
@@ -15,7 +16,7 @@ export class ReposComponent implements OnInit {
 
   reposForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private userService: UserService) {
     this.reposForm = this.fb.group({
       input: [''],
     });
