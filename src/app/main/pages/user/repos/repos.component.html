@@ -84,5 +84,7 @@
       <img src="assets/repos-pattern.svg" alt="pattern" />
     </div>
   </div>
-
 </div>
+
+<div *ngFor="let item of pageOfRepos">{{ item.name | json }}</div>
+<jw-pagination [items]="repositories" (changePage)="onChangePage($event)"></jw-pagination>

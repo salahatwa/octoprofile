@@ -1,3 +1,4 @@
+import { RepositoryI } from './../../../models/repository.model';
 import { UserService } from './../../../services/user.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -16,13 +17,29 @@ export class ReposComponent implements OnInit {
 
   reposForm: FormGroup;
 
+  repositories: RepositoryI[] = [];
+  pageOfRepos: RepositoryI[] = [];
+
   constructor(private fb: FormBuilder, private userService: UserService) {
     this.reposForm = this.fb.group({
       input: [''],
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.reposForm.get('input').valueChanges.subscribe((val: string) => {
+      console.log(val);
+    });
+
+    this.userService.repos.subscribe((repos: RepositoryI[]) => {
+      // Get repos from service
+      this.repositories = [...repos];
+    });
+  }
+  onChangePage(pageOfRepos: RepositoryI[]) {
+    // update current page of items
+    this.pageOfRepos = pageOfRepos;
+  }
 
   toggleMenu(): void {
     // Toggle the menu

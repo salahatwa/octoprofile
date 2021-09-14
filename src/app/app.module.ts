@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChartsComponent } from './main/pages/user/charts/charts.component';
 import { ChartsModule } from 'ng2-charts';
 import { ReposComponent } from './main/pages/user/repos/repos.component';
+import { JwPaginationModule } from 'jw-angular-pagination';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ReposComponent } from './main/pages/user/repos/repos.component';
     ReactiveFormsModule,
     HttpClientModule,
     ChartsModule,
+    JwPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
