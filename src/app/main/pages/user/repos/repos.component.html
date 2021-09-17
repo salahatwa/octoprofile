@@ -86,5 +86,28 @@
   </div>
 </div>
 
-<div *ngFor="let item of pageOfRepos">{{ item.name | json }}</div>
-<jw-pagination [items]="repositories" (changePage)="onChangePage($event)"></jw-pagination>
+<div class="repositories--wrapper">
+  <div class="container">
+    <repo-card
+      *ngFor="let repo of pageOfRepos"
+      [repo]="{
+        title: repo.name,
+        url: repo.html_url,
+        description: repo.description,
+        language: repo.language,
+        stars: repo.stargazers_count,
+        forks: repo.forks_count,
+        size: repo.size
+      }"
+    ></repo-card>
+  </div>
+</div>
+
+<div class="pagination--controls">
+  <jw-pagination
+    [items]="repositories"
+    [pageSize]="6"
+    [maxPages]="5"
+    (changePage)="onChangePage($event)"
+  ></jw-pagination>
+</div>

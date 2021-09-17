@@ -16,6 +16,7 @@ import { ChartsComponent } from './main/pages/user/charts/charts.component';
 import { ChartsModule } from 'ng2-charts';
 import { ReposComponent } from './main/pages/user/repos/repos.component';
 import { JwPaginationModule } from 'jw-angular-pagination';
+import { RepoCardComponent } from './main/pages/user/repos/repo-card/repo-card.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { JwPaginationModule } from 'jw-angular-pagination';
     MainStatsComponent,
     ChartsComponent,
     ReposComponent,
+    RepoCardComponent,
   ],
   imports: [
     BrowserModule,
