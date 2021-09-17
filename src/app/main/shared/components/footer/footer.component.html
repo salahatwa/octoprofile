@@ -1,15 +1,15 @@
 <div class="container">
-  <p class="built__with">
+  <p class="built__with element">
     Built with
     <a href="https://www.chartjs.org/" target="_blank">Chart.js</a>,
     <a href="https://docs.github.com/en/rest" target="_blank">GitHub API</a>
     and more!
   </p>
-  <a [routerLink]="['/']"
+  <a class="element" [routerLink]="['/']"
     ><img class="logo" src="assets/logo-white.svg" alt="Logo"
   /></a>
   <ngx-tippy-singleton [singletonProps]="singletonTransitions">
-    <div class="social">
+    <div class="social element">
       <a
         href="https://www.linkedin.com/in/cdubon/"
         target="_blank"
