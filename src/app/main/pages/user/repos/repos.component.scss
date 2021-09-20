@@ -223,3 +223,15 @@
   justify-content: center;
   margin-bottom: 100px;
 }
+
+.dots {
+  position: absolute;
+  z-index: -1;
+  transform: translate(-220%, 220%);
+}
+
+.dots__secondary {
+  position: absolute;
+  z-index: -1;
+  transform: translate(300%, -35%);
+}
