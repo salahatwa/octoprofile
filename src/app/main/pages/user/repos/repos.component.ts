@@ -66,9 +66,7 @@ export class ReposComponent implements OnInit {
         val,
         this.repositories
       );
-
       this.repositories = [];
-
       setTimeout(() => {
         this.repositories = sorted;
       });
@@ -88,12 +86,6 @@ export class ReposComponent implements OnInit {
   setFilter(filter: string): void {
     this.currentFilter.next(filter);
     this.toggleMenu();
-
-    // Sort by current filter
-    this.repositories = this.getFilteredRepos(
-      this.currentFilter.value,
-      this.repositories
-    );
   }
 
   getFilteredRepos(filter: string, repos: RepositoryI[]): RepositoryI[] {

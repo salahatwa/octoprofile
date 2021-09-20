@@ -1,0 +1,29 @@
+:host {
+  position: fixed;
+  z-index: 10;
+  right: 1em;
+  bottom: 1em;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  min-height: 40px;
+}
+
+.box {
+  cursor: pointer;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  min-height: 40px;
+  background-color: #000000;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-out;
+  transform: translateY(150%);
+}
+
+.show {
+  transform: translateX(0%);
+}
