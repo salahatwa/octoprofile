@@ -5,9 +5,11 @@
     <a href="https://docs.github.com/en/rest" target="_blank">GitHub API</a>
     and more!
   </p>
-  <a class="element" [routerLink]="['/']"
-    ><img class="logo" src="assets/logo-white.svg" alt="Logo"
-  /></a>
+  <div class="element">
+    <a [routerLink]="['/']"
+      ><img class="logo" src="assets/logo-white.svg" alt="Logo"
+    /></a>
+  </div>
   <ngx-tippy-singleton [singletonProps]="singletonTransitions">
     <div class="social element">
       <a
