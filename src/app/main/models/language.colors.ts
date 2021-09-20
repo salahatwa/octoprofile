@@ -40,14 +40,14 @@ export const languageColors = {
   Pug: `rgba(83,49,42,${opacity})`,
 };
 
-export function generateRandomRGBAColor(): string {
+export const generateRandomRGBAColor = (): string => {
   const randomBetween = (min: number, max: number) =>
     min + Math.floor(Math.random() * (max - min + 1));
   const r = randomBetween(0, 255);
   const g = randomBetween(0, 255);
   const b = randomBetween(0, 255);
   return `rgba(${r},${g},${b},${opacity})`;
-}
+};
 
 export const mostStarredReposChartColors: string[] = [
   `rgba(255,70,110,${opacity})`,

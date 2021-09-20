@@ -1,3 +1,7 @@
+import {
+  generateRandomRGBAColor,
+  languageColors,
+} from './../../../../models/language.colors';
 import { RepositoryCardI } from './../../../../models/repository.card.model';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -9,9 +13,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class RepoCardComponent implements OnInit {
   @Input() repo: RepositoryCardI;
 
+  public titleCharLimit: number = 26;
+  public descriptionCharLimit: number = 118;
+
   constructor() {}
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {}
+
+  public getLanguageColor(language: string): string {
+    return languageColors[language] || generateRandomRGBAColor();
   }
 }
