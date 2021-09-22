@@ -3,6 +3,7 @@ import { RepositoryI } from './../../../models/repository.model';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from './../../../services/user.service';
 import { Component, OnInit } from '@angular/core';
+import * as AOS from 'aos';
 
 import { ChartOptions } from 'chart.js';
 import {
@@ -28,6 +29,8 @@ export class ChartsComponent implements OnInit {
     monkeyPatchChartJsTooltip();
     monkeyPatchChartJsLegend();
   }
+
+  public AOSDuration: number = 750; //ms
 
   // List containing all the repositories
   public repositories: RepositoryI[] = [];
@@ -71,6 +74,8 @@ export class ChartsComponent implements OnInit {
   public starsPerLanguageChartColors: Colors;
 
   ngOnInit(): void {
+    AOS.init();
+
     this.route.queryParams.subscribe((params) => {
       const id: string = params['id'];
 
