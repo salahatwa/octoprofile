@@ -2,7 +2,7 @@ import { UserMainStatsI } from './../../models/user.model';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserI } from '../../models/user.model';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -29,7 +29,8 @@ export class UserComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private titleService: Title,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -57,7 +58,10 @@ export class UserComponent implements OnInit {
         };
       },
       (err: HttpErrorResponse) => {
+        console.error(err);
         // Handle errors here, like sending the user to another route
+        this.router.navigate(['/']);
+        this.titleService.setTitle('OctoProfile');
       }
     );
   }
