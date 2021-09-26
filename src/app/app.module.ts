@@ -18,6 +18,7 @@ import { ReposComponent } from './main/pages/user/repos/repos.component';
 import { JwPaginationModule } from 'jw-angular-pagination';
 import { RepoCardComponent } from './main/pages/user/repos/repo-card/repo-card.component';
 import { ScrollToTopComponent } from './main/shared/components/scroll-to-top/scroll-to-top.component';
+import { UserNotFoundComponent } from './main/pages/user-not-found/user-not-found.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ScrollToTopComponent } from './main/shared/components/scroll-to-top/scr
     ReposComponent,
     RepoCardComponent,
     ScrollToTopComponent,
+    UserNotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,7 +14,7 @@ export class RepoCardComponent implements OnInit {
   @Input() repo: RepositoryCardI;
 
   public titleCharLimit: number = 26;
-  public descriptionCharLimit: number = 118;
+  public descriptionCharLimit: number = 105;
 
   constructor() {}
 

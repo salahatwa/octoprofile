@@ -59,8 +59,13 @@ export class UserComponent implements OnInit {
       },
       (err: HttpErrorResponse) => {
         console.error(err);
-        // Handle errors here, like sending the user to another route
-        this.router.navigate(['/']);
+        // Handle errors here
+
+        /**
+         * ? replaceUrl removes the bad user request from browser history
+         * * https://stackoverflow.com/a/51429799/15570950
+         */
+        this.router.navigate(['/user-not-found'], { replaceUrl: true });
         this.titleService.setTitle('OctoProfile');
       }
     );
