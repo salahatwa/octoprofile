@@ -1,27 +1,25 @@
-# Octoprofile
+# OctoProfile
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
+<p align="center">
+<img src="readme/logo.svg" alt="Logo" width="100" height="100">
+</p>
 
-## Development server
+<p align="center"><strong>A nicer look at GitHub profiles.</strong></p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<p align="center">Technology stack used:</p>
 
-## Code scaffolding
+<p align="center">
+<img src="https://img.shields.io/badge/Angular-DD0031?style=flat&logo=angular&logoColor=white" alt="Angular">
+<img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white" alt="TypeScript">
+<img src="https://img.shields.io/badge/Sass-CC6699?style=flat&logo=sass&logoColor=white" alt="Sass">
+<img src="https://img.shields.io/badge/GitHub Pages-100000?style=flat&logo=github&logoColor=white" alt="GitHub Pages">
+</p>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<p align="center">
+<a href="https://carlos-dubon.github.io/octoprofile/" target="_blank">https://carlos-dubon.github.io/octoprofile/</a>
+</center>
+</p>
 
-## Build
+OctoProfile gives a **nicer look** at your GitHub profile and repositories. With **data visualizations** of your languages and stars. You can **sort through your repos** by name, number of stars, forks and size. I built this tool so that anyone can showcase their GitHub profile in a clean and modern way.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![page_2](readme/page_2.png)
