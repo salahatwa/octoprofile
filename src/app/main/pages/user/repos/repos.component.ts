@@ -20,21 +20,6 @@ export class ReposComponent implements OnInit {
   @ViewChild('menuBtn') menu: ElementRef<HTMLElement>;
   menuOpened: boolean = false;
 
-  lastWidth: number = window.innerWidth;
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    const width = event.target.innerWidth;
-
-    if (width < 900) {
-      this.ngOnInit();
-      this.maxPages = window.innerWidth < 800 ? 3 : 5;
-      this.pageSize = window.innerWidth < 800 ? 3 : 6;
-      this.searchPlaceholder =
-      window.innerWidth < 800 ? 'Search...' : 'The name of the repository';
-    }
-  }
-
   public pageSize = 6;
   public maxPages: number = 5;
 

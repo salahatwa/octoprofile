@@ -215,6 +215,15 @@
   @include flexCenter();
   position: absolute;
   transform: translateX(-110%);
+  @media (max-width: 1366px) {
+    transform: translateX(-90%);
+  }
+  @media (max-width: 900px) {
+    transform: translateX(-60%);
+  }
+  @media (max-width: 800px) {
+    transform: translateX(-50%) scale(0.85);
+  }
 }
 
 .repositories--wrapper {
@@ -254,16 +263,33 @@
   margin-bottom: 100px;
 }
 
+// Left dots
 .dots {
   position: absolute;
   z-index: -1;
   transform: translate(-220%, 220%);
+  @media (max-width: 1200px) {
+    transform: translate(-220%, 270%);
+  }
+  @media (max-width: 1100px) {
+    display: none;
+  }
 }
 
+// Right dots
 .dots__secondary {
   position: absolute;
   z-index: -1;
   transform: translate(330%, -35%);
+  @media (max-width: 1366px) {
+    transform: translate(260%, -25%);
+  }
+  @media (max-width: 1200px) {
+    transform: translate(260%, -25%);
+  }
+  @media (max-width: 1100px) {
+    display: none;
+  }
 }
 
 .no__repos__found {
