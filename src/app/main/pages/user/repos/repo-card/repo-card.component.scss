@@ -1,3 +1,12 @@
+:host{
+  @media (max-width: 1100px) {
+    max-height: 205px;
+  }
+  @media (max-width: 900px) {
+    max-height: 240px;
+  }
+}
+
 a {
   margin: 0;
   padding: 0;
@@ -11,11 +20,39 @@ a {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+  height: 205px;
   width: 380px;
   max-width: 380px;
   min-width: 380px;
+  @media (max-width: 1366px) {
+    width: 364px;
+    max-width: 364px;
+    min-width: 364px;
+  }
+  @media (max-width: 1300px) {
+    width: 348px;
+    max-width: 348px;
+    min-width: 348px;
+  }
+  @media (max-width: 1200px) {
+    width: 314px;
+    max-width: 314px;
+    min-width: 314px;
+    height: 240px;
+  }
+  @media (max-width: 1100px) {
+    width: 380px;
+    max-width: 380px;
+    min-width: 380px;
+    height: 205px;
+  }
+  @media (max-width: 900px) {
+    width: 336px;
+    max-width: 336px;
+    min-width: 336px;
+    height: 240px;
+  }
   box-sizing: border-box;
-  height: 205px;
   padding: 24px;
   cursor: pointer;
   transition: all 0.2s ease-in;
@@ -30,6 +67,24 @@ a {
     line-height: 30px;
     color: #18191f;
     margin-bottom: 5px;
+    @media (max-width: 1200px) {
+      white-space: nowrap;
+      overflow: hidden;
+      max-width: 18ch;
+      text-overflow: ellipsis;
+    }
+    @media (max-width: 1100px) {
+      white-space: inherit;
+      overflow: inherit;
+      max-width: inherit;
+      text-overflow: inherit;
+    }
+    @media (max-width: 900px) {
+      white-space: nowrap;
+      overflow: hidden;
+      max-width: 18ch;
+      text-overflow: ellipsis;
+    }
   }
   .description {
     margin: 0;
@@ -40,10 +95,45 @@ a {
     color: #18191f;
     margin-bottom: 13px;
     height: 78px;
+    @media (max-width: 1200px) {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+    @media (max-width: 1100px) {
+     overflow: inherit;
+     display: inherit;
+     -webkit-line-clamp: inherit;
+     -webkit-box-orient: inherit;
+    }
+    @media (max-width: 900px) {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+     }
   }
   .stats {
     display: flex;
     gap: 0.6em;
+
+    @media (max-width: 1200px) {
+      height: 56px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 1100px) {
+      height: auto;
+      align-items: inherit;
+      flex-wrap: inherit;
+     }
+     @media (max-width: 900px) {
+      height: 56px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+
     .language,
     .stars,
     .forks,
@@ -63,6 +153,12 @@ a {
     }
 
     .language {
+      p {
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 9ch;
+        text-overflow: ellipsis;
+      }
       .bullet {
         display: flex;
         width: 10px;

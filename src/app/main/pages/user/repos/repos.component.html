@@ -10,7 +10,7 @@
         <input
           formControlName="input"
           type="text"
-          placeholder="The name of the repository"
+          [placeholder]="searchPlaceholder"
           spellcheck="false"
         />
       </form>
@@ -108,8 +108,8 @@
 <div class="pagination--controls">
   <jw-pagination
     [items]="repositories"
-    [pageSize]="6"
-    [maxPages]="5"
+    [pageSize]="pageSize"
+    [maxPages]="maxPages"
     (changePage)="onChangePage($event)"
   ></jw-pagination>
 </div>

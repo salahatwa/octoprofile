@@ -10,6 +10,9 @@
 .search--container {
   width: 340px;
   height: 64px;
+  @media (max-width: 800px) {
+   width: 320px;
+  }
   display: flex;
   align-items: center;
   padding: 22px;

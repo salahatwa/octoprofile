@@ -21,6 +21,9 @@
   width: 100%;
   min-height: 700px;
   height: calc(100vh - (72px * 2));
+  @media (max-width: 800px) {
+    height: auto;
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,6 +39,11 @@
     font-feature-settings: "salt" on, "liga" off;
     color: $gray900;
     margin-bottom: 0.55em;
+    @media (max-width: 800px) {
+      margin-top: 1em;
+      font-size: 42px;
+      text-align: center;
+    }
   }
 }
 
@@ -43,6 +51,15 @@
   .quote {
     margin-bottom: 2.25em;
     width: 854px;
+    @media (max-width: 1000px) {
+      width: 750px;
+    }
+    @media (max-width: 900px) {
+      width: 650px;
+    }
+    @media (max-width: 800px) {
+      width: 300px;
+    }
     box-sizing: border-box;
     padding: 30px 30px 26px 90px;
     background: #ffffff;
@@ -56,6 +73,10 @@
       font-feature-settings: "salt" on, "liga" off;
       color: $gray900;
       position: relative;
+      @media (max-width: 800px) {
+        font-size: 16px;
+        line-height: 28px;
+      }
       &::before {
         content: "";
         position: absolute;
@@ -85,6 +106,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 800px) {
+      margin-bottom: 3em;
+    }
     img {
       width: 56px;
       height: 56px;

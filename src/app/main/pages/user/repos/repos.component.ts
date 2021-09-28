@@ -1,6 +1,12 @@
 import { RepositoryI } from './../../../models/repository.model';
 import { UserService } from './../../../services/user.service';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import replaceString from 'replace-string';
@@ -13,6 +19,26 @@ import replaceString from 'replace-string';
 export class ReposComponent implements OnInit {
   @ViewChild('menuBtn') menu: ElementRef<HTMLElement>;
   menuOpened: boolean = false;
+
+  lastWidth: number = window.innerWidth;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    const width = event.target.innerWidth;
+
+    if (width < 900) {
+      this.ngOnInit();
+      this.maxPages = window.innerWidth < 800 ? 3 : 5;
+      this.pageSize = window.innerWidth < 800 ? 3 : 6;
+      this.searchPlaceholder =
+      window.innerWidth < 800 ? 'Search...' : 'The name of the repository';
+    }
+  }
+
+  public pageSize = 6;
+  public maxPages: number = 5;
+
+  public searchPlaceholder: string = 'The name of the repository';
 
   currentFilter: BehaviorSubject<string> = new BehaviorSubject('Stars');
 
@@ -30,6 +56,12 @@ export class ReposComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.maxPages = window.innerWidth < 800 ? 3 : 5;
+    this.pageSize = window.innerWidth < 800 ? 3 : 6;
+
+    this.searchPlaceholder =
+      window.innerWidth < 800 ? 'Search...' : 'The name of the repository';
+
     this.userService.repos.subscribe((repos: RepositoryI[]) => {
       // Get repos from user service
       this.repositories = [...repos];

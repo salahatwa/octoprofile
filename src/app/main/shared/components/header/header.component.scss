@@ -21,11 +21,16 @@
   img {
     height: 28px;
   }
-  .logo{
+  .logo {
     @include flexCenter();
   }
   .cta--section {
     display: flex;
     gap: 1em;
+  }
+  .btn--secondary {
+    @media (max-width: 800px) {
+      display: none;
+    }
   }
 }

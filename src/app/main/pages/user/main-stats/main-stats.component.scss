@@ -13,16 +13,38 @@ $size: 255px;
 .main--wrapper {
   display: flex;
   gap: 30px;
+  @media (max-width: 1000px) {
+    gap: 10px;
+  }
+  @media (max-width: 900px) {
+    gap: 5px;
+  }
   .stat--wrapper {
     @include flexCenter();
     position: relative;
     width: $size;
     height: $size;
+    @media (max-width: 900px) {
+      width: 230px;
+      height: 230px;
+    }
+    @media (max-width: 800px) {
+      width: 120px;
+      height: 120px;
+    }
     .polygon {
       position: absolute;
       z-index: 13;
       width: $size;
       height: $size;
+      @media (max-width: 900px) {
+        width: 230px;
+        height: 230px;
+      }
+      @media (max-width: 800px) {
+        width: 120px;
+        height: 120px;
+      }
       -webkit-filter: drop-shadow(0px 10px 20px rgba(41, 41, 42, 0.07));
       filter: drop-shadow(0px 10px 20px rgba(41, 41, 42, 0.07));
     }
@@ -44,11 +66,26 @@ $size: 255px;
         line-height: 64px;
         color: $gray900;
         text-align: center;
+        @media (max-width: 900px) {
+          font-size: 42px;
+        }
+        @media (max-width: 800px) {
+          font-size: 24px;
+          line-height: normal;
+          margin-bottom: 5px;
+        }
       }
       p {
         font-weight: normal;
         font-size: 18px;
         line-height: 32px;
+        @media (max-width: 900px) {
+          line-height: 28px;
+        }
+        @media (max-width: 800px) {
+          font-size: 14px;
+          line-height: normal;
+        }
         color: $gray900;
         text-align: center;
       }
