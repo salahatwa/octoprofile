@@ -22,6 +22,4 @@
 
 OctoProfile gives a **nicer look** at your GitHub profile and repositories. With **data visualizations** of your languages and stars. You can **sort through your repos** by name, number of stars, forks and size. I built this tool so that anyone can showcase their GitHub profile in a clean and modern way.
 
-![page_1](readme/page_1.png)
-
 ![page_2](readme/page_2.png)
