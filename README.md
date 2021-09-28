@@ -1,4 +1,4 @@
-# :octocat: OctoProfile
+# OctoProfile
 
 <p align="center">
 <img src="readme/logo.svg" alt="Logo" width="100" height="100">
