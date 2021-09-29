@@ -40,9 +40,6 @@ export class UserComponent implements OnInit {
 
     this.githubUrl = `https://github.com/${this.id}`;
 
-    // Change the title of the current page
-    this.titleService.setTitle(`OctoProfile | ${this.id}`);
-
     this.userService.getUserData(this.id).subscribe(
       (data: UserI) => {
         this.id = data.login;
@@ -51,6 +48,9 @@ export class UserComponent implements OnInit {
         this.workplace = data.company;
         this.location = data.location;
         this.creationDate = data.created_at;
+
+        // Change the title of the current page
+        this.titleService.setTitle(`OctoProfile | ${this.id}`);
 
         this.userMainStats = {
           repositories: data.public_repos,
