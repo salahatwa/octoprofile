@@ -45,6 +45,7 @@ export class UserComponent implements OnInit {
 
     this.userService.getUserData(this.id).subscribe(
       (data: UserI) => {
+        this.id = data.login;
         this.photo = data.avatar_url;
         this.name = data.name;
         this.workplace = data.company;

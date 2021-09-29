@@ -10,7 +10,7 @@
   background-color: #000000;
   color: $gray300;
   @media (max-width: 800px) {
-    height: 170px;
+    height: 180px;
   }
 }
 
@@ -21,7 +21,7 @@
   @media (max-width: 800px) {
     flex-direction: column;
     justify-content: center;
-    gap: 0.5em;
+    gap: 0.8em;
   }
   .built__with {
     font-weight: normal;
@@ -33,6 +33,12 @@
       &:hover {
         text-decoration: underline;
       }
+    }
+    @media (max-width: 800px) {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      height: 32px;
     }
   }
   .logo {

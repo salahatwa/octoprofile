@@ -23,6 +23,33 @@ export class ReposComponent implements OnInit {
   public pageSize = 6;
   public maxPages: number = 5;
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    const width: number = event.target.innerWidth;
+
+    if (
+      width < 800 &&
+      this.maxPages !== 3 &&
+      this.pageSize !== 3 &&
+      this.searchPlaceholder !== 'Search...'
+    ) {
+      this.maxPages = 3;
+      this.pageSize = 3;
+      this.searchPlaceholder = 'Search...';
+      this.ngOnInit();
+    } else if (
+      width > 800 &&
+      this.maxPages !== 5 &&
+      this.pageSize !== 6 &&
+      this.searchPlaceholder !== 'The name of the repository'
+    ) {
+      this.maxPages = 5;
+      this.pageSize = 6;
+      this.searchPlaceholder = 'The name of the repository';
+      this.ngOnInit();
+    }
+  }
+
   public searchPlaceholder: string = 'The name of the repository';
 
   currentFilter: BehaviorSubject<string> = new BehaviorSubject('Stars');

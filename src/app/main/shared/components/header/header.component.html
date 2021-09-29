@@ -3,24 +3,24 @@
     ><img src="assets/logo.svg" alt="Logo"
   /></a>
 
-  <ngx-tippy-singleton [singletonProps]="singletonTransitions">
-    <div class="cta--section">
-      <a
-        href="https://github.com/carlos-dubon/octoprofile/blob/main/README.md"
-        class="btn--secondary"
-        target="_blank"
-        ngxTippy
-        data-tippy-content="Read the docs"
-        >README.md</a
-      >
-      <a
-        href="https://github.com/carlos-dubon/octoprofile"
-        class="btn--primary"
-        target="_blank"
-        ngxTippy
-        data-tippy-content="Open the GitHub repo"
-        >View on GitHub</a
-      >
-    </div>
-  </ngx-tippy-singleton>
+  <div class="cta--section">
+    <a
+      aria-label="Read the docs"
+      data-microtip-position="bottom"
+      role="tooltip"
+      href="https://github.com/carlos-dubon/octoprofile/blob/main/README.md"
+      class="btn--secondary"
+      target="_blank"
+      >README.md</a
+    >
+    <a
+      aria-label="Open the GitHub repo"
+      data-microtip-position="bottom"
+      role="tooltip"
+      href="https://github.com/carlos-dubon/octoprofile"
+      class="btn--primary"
+      target="_blank"
+      >View on GitHub</a
+    >
+  </div>
 </div>

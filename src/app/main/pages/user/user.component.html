@@ -3,18 +3,10 @@
     <div class="container">
       <div class="github__repo--container">
         <a
-          ngxTippy
-          data-tippy-content="Open the GitHub repo"
+          aria-label="Open the GitHub repo"
+          data-microtip-position="bottom"
+          role="tooltip"
           href="https://github.com/carlos-dubon/octoprofile"
-          [tippyProps]="{
-            animation: 'shift-away',
-            interactiveBorder: 30,
-            interactiveDebounce: 75,
-            theme: 'dark',
-            offset: [0, 15],
-            arrow: true,
-            moveTransition: 'transform 0.4s ease-in-out'
-          }"
           target="_blank"
           class="github__repo--cta"
         >
@@ -38,17 +30,9 @@
           {{ name }}
         </h2>
         <a
-          ngxTippy
-          data-tippy-content="View GitHub profile"
-          [tippyProps]="{
-            animation: 'shift-away',
-            interactiveBorder: 30,
-            interactiveDebounce: 75,
-            theme: 'light',
-            offset: [0, 15],
-            arrow: true,
-            moveTransition: 'transform 0.4s ease-in-out'
-          }"
+          aria-label="View GitHub profile"
+          data-microtip-position="top"
+          role="tooltip"
           [href]="githubUrl"
           target="_blank"
           >@{{ id }}</a

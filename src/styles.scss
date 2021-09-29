@@ -1,6 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import "app/main/shared/styles/colors";
 @import "app/main/shared/styles/mixins";
+@import "./.././node_modules/microtip/microtip.min.css";
+
+:root {
+  --microtip-font-size: 14px;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 
 html,
 body {
@@ -91,7 +100,7 @@ body {
       display: flex;
       a::before {
         content: "";
-        background-image: url("assets/pagination-arrow.svg");
+        background-image: url("/assets/pagination-arrow.svg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -108,7 +117,7 @@ body {
       display: flex;
       a::after {
         content: "";
-        background-image: url("assets/pagination-arrow.svg");
+        background-image: url("/assets/pagination-arrow.svg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -139,6 +148,9 @@ body {
       font-size: 14px;
       text-align: center;
       color: #8c30f5;
+      &:hover {
+        opacity: 0.8;
+      }
     }
     .page-link {
       display: flex;

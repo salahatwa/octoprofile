@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './main/pages/home/home.component';
 import { FooterComponent } from './main/shared/components/footer/footer.component';
 import { HeaderComponent } from './main/shared/components/header/header.component';
-import { NgxTippyModule } from 'ngx-tippy-wrapper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserSearchComponent } from './main/shared/components/user-search/user-search.component';
 import { UserComponent } from './main/pages/user/user.component';
@@ -37,7 +36,6 @@ import { UserNotFoundComponent } from './main/pages/user-not-found/user-not-foun
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxTippyModule,
     ReactiveFormsModule,
     HttpClientModule,
     ChartsModule,
