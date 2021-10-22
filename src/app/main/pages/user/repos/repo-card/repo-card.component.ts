@@ -1,7 +1,6 @@
-import {
-  generateRandomRGBAColor,
-  languageColors,
-} from './../../../../models/language.colors';
+import { Mode } from '@carlos-dubon/chroma/lib/models/mode.enum';
+import Chroma from '@carlos-dubon/chroma';
+import { opacity } from './../../../../models/language.colors';
 import { RepositoryCardI } from './../../../../models/repository.card.model';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -15,12 +14,19 @@ export class RepoCardComponent implements OnInit {
 
   public titleCharLimit: number = 26;
   public descriptionCharLimit: number = 105;
+  private chroma: Chroma;
 
-  constructor() {}
+  constructor() {
+    this.chroma = new Chroma({
+      warnings: false,
+      colorMode: Mode.rgb,
+      opacity: opacity,
+    });
+  }
 
   ngOnInit(): void {}
 
   public getLanguageColor(language: string): string {
-    return languageColors[language] || generateRandomRGBAColor();
+    return this.chroma.get(language) as string;
   }
 }

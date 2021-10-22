@@ -1,11 +1,10 @@
 import {
-  generateRandomRGBAColor,
-  languageColors,
-} from './../../../../models/language.colors';
-import {
   LanguageStat,
   RepositoryI,
 } from 'src/app/main/models/repository.model';
+import Chroma from '@carlos-dubon/chroma';
+import { Mode } from '@carlos-dubon/chroma/lib/models/mode.enum';
+import { opacity } from 'src/app/main/models/language.colors';
 
 export function buildTopLanguagesChart(
   repos: RepositoryI[]
@@ -26,7 +25,7 @@ export function buildTopLanguagesChart(
   let instances: number[] = [];
   uniq.forEach((language: string) => {
     let count: number = 0;
-    count = languages.filter((lang) => lang === language).length;
+    count = languages.filter((lang) => lang == language).length;
 
     instances.push(count);
   });
@@ -108,7 +107,7 @@ export function buildStarsPerLanguageChart(
   uniq.forEach((lang: string) => {
     let counter: number = 0;
     repos.forEach((repo: RepositoryI) => {
-      if (repo.language === lang) counter += repo.stargazers_count;
+      if (repo.language == lang) counter += repo.stargazers_count;
     });
     starsPerLanguage.push({
       languageName: lang,
@@ -124,12 +123,16 @@ export function buildStarsPerLanguageChart(
   let stargazers: number[] = [];
   let colors: string[] = [];
 
+  const chroma: Chroma = new Chroma({
+    opacity: opacity,
+    colorMode: Mode.rgb,
+    warnings: false,
+  });
+
   starsPerLanguage.forEach((langData) => {
     labels.push(langData.languageName);
     stargazers.push(langData.stargazers);
-    colors.push(
-      languageColors[langData.languageName] || generateRandomRGBAColor()
-    );
+    colors.push(chroma.get(langData.languageName) as string);
   });
 
   return [labels, stargazers, colors];

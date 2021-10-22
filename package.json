@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~11.2.8",
     "@angular/platform-browser-dynamic": "~11.2.8",
     "@angular/router": "~11.2.8",
+    "@carlos-dubon/chroma": "^1.0.9",
     "aos": "^2.3.4",
     "chart.js": "^2.9.3",
     "jw-angular-pagination": "^1.2.0",

@@ -1,4 +1,6 @@
-import { generateRandomRGBAColor, languageColors } from './language.colors';
+import Chroma from '@carlos-dubon/chroma';
+import { Mode } from '@carlos-dubon/chroma/lib/models/mode.enum';
+import { opacity } from './language.colors';
 import { LicenseI } from './license.model';
 import { OwnerI } from './user.model';
 
@@ -82,9 +84,15 @@ export class LanguageStat {
   name: string;
   quantity: number;
   color: string;
+  private chroma: Chroma;
   constructor(name: string, quantity: number) {
     this.name = name;
     this.quantity = quantity;
-    this.color = languageColors[this.name] || generateRandomRGBAColor();
+    this.chroma = new Chroma({
+      colorMode: Mode.rgb,
+      opacity: opacity,
+      warnings: false,
+    });
+    this.color = this.chroma.get(this.name) as string;
   }
 }
