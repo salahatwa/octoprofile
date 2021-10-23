@@ -110,10 +110,7 @@ export class ReposComponent implements OnInit {
         val,
         this.repositories
       );
-      this.repositories = [];
-      setTimeout(() => {
-        this.repositories = sorted;
-      });
+      this.repositories = [...sorted];
     });
   }
 

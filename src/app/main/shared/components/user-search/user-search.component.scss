@@ -11,7 +11,7 @@
   width: 340px;
   height: 64px;
   @media (max-width: 800px) {
-   width: 320px;
+    width: 320px;
   }
   display: flex;
   align-items: center;
@@ -48,20 +48,42 @@
 }
 
 .error--wrapper {
+  min-height: 48px;
   margin: 1em 0 2.8em 0;
 }
 
 .error--section {
+  .error--icon {
+    width: 15px !important;
+    height: 15px !important;
+    min-height: 15px;
+    min-width: 15px;
+    max-width: 15px;
+    max-height: 15px;
+  }
   display: flex;
   align-items: center;
   p {
     max-width: 420px;
     font-weight: normal;
     font-size: 14px;
+    font-size: 12px;
     line-height: 24px;
     font-feature-settings: "salt" on, "liga" off;
     margin: 0;
-    margin-left: 14px;
+    margin-left: 12px;
     color: #c72393;
+  }
+  animation: enter 0.2s ease-in-out forwards;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
