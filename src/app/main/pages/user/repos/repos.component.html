@@ -87,8 +87,6 @@
 </div>
 
 <div class="repositories--wrapper">
-  <img class="dots" src="assets/repo-section-dots.svg" />
-  <img class="dots__secondary" src="assets/repo-section-dots.svg" />
   <div class="container" *ngIf="pageOfRepos.length > 0; else noReposFound">
     <repo-card
       *ngFor="let repo of pageOfRepos"
