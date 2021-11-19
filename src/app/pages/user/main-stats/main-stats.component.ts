@@ -1,4 +1,4 @@
-import { UserMainStatsI } from './../../../models/user.model';
+import { UserMainStatsI } from '../../../models/user.model';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

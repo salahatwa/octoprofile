@@ -1,5 +1,5 @@
-@import "../../shared/styles/mixins";
-@import "../../shared/styles/colors";
+@import "../../styles/mixins";
+@import "../../styles/colors";
 
 .main--wrapper {
   margin-top: 72px;
@@ -86,7 +86,7 @@
         display: flex;
         width: 40px;
         height: 32px;
-        background-image: url("./../../../../assets/quote.svg");
+        background-image: url("../../../assets/quote.svg");
         background-repeat: no-repeat;
         left: -3.2em;
         top: -0.2em;

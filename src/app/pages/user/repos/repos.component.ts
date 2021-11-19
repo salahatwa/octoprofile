@@ -1,5 +1,5 @@
-import { RepositoryI } from './../../../models/repository.model';
-import { UserService } from './../../../services/user.service';
+import { RepositoryI } from '../../../models/repository.model';
+import { UserService } from '../../../services/user.service';
 import {
   Component,
   ElementRef,

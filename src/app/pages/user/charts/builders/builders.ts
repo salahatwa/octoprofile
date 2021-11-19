@@ -1,10 +1,10 @@
 import {
   LanguageStat,
   RepositoryI,
-} from 'src/app/main/models/repository.model';
+} from 'src/app/models/repository.model';
 import Chroma from '@carlos-dubon/chroma';
 import { Mode } from '@carlos-dubon/chroma/lib/models/mode.enum';
-import { opacity } from 'src/app/main/models/language.colors';
+import { opacity } from 'src/app/models/language.colors';
 
 export function buildTopLanguagesChart(
   repos: RepositoryI[]

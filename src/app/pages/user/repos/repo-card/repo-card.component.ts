@@ -1,7 +1,7 @@
 import { Mode } from '@carlos-dubon/chroma/lib/models/mode.enum';
 import Chroma from '@carlos-dubon/chroma';
-import { opacity } from './../../../../models/language.colors';
-import { RepositoryCardI } from './../../../../models/repository.card.model';
+import { opacity } from '../../../../models/language.colors';
+import { RepositoryCardI } from '../../../../models/repository.card.model';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

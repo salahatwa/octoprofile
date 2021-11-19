@@ -1,7 +1,7 @@
-import { mostStarredReposChartColors } from './../../../models/language.colors';
-import { RepositoryI } from './../../../models/repository.model';
+import { mostStarredReposChartColors } from '../../../models/language.colors';
+import { RepositoryI } from '../../../models/repository.model';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from './../../../services/user.service';
+import { UserService } from '../../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
 

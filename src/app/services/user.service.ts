@@ -1,4 +1,4 @@
-import { RepositoryI } from './../models/repository.model';
+import { RepositoryI } from '../models/repository.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, forkJoin, Subject } from 'rxjs';

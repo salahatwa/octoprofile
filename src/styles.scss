@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import "app/main/shared/styles/colors";
-@import "app/main/shared/styles/mixins";
+@import "app/styles/colors";
+@import "app/styles/mixins";
 @import "./.././node_modules/microtip/microtip.min.css";
 
 :root {
@@ -81,9 +81,6 @@ body {
     li {
       cursor: pointer;
     }
-    .page-item {
-    }
-
     .first-item,
     .last-item {
       font-weight: 500;
@@ -160,7 +157,7 @@ body {
       height: 100%;
     }
     .disabled {
-      cursor: not-allowed;
+      cursor: default;
       animation: disableElement 0.1s ease-in-out forwards;
     }
     .active {

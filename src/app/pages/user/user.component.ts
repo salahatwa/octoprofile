@@ -1,5 +1,5 @@
-import { UserMainStatsI } from './../../models/user.model';
-import { UserService } from './../../services/user.service';
+import { UserMainStatsI } from '../../models/user.model';
+import { UserService } from '../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
