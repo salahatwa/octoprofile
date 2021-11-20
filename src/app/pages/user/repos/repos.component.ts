@@ -20,6 +20,8 @@ export class ReposComponent implements OnInit {
   @ViewChild('menuBtn') menu: ElementRef<HTMLElement>;
   menuOpened: boolean = false;
 
+  public loadingRepos: boolean = true;
+
   public pageSize = 6;
   public maxPages: number = 5;
 
@@ -74,6 +76,7 @@ export class ReposComponent implements OnInit {
     this.searchPlaceholder =
       window.innerWidth < 800 ? 'Search...' : 'The name of the repository';
 
+    this.loadingRepos = true;
     this.userService.repos.subscribe((repos: RepositoryI[]) => {
       // Get repos from user service
       this.repositories = [...repos];
@@ -84,6 +87,7 @@ export class ReposComponent implements OnInit {
         this.currentFilter.value,
         this.repositories
       );
+      this.loadingRepos = false;
     });
 
     this.reposForm.get('input').valueChanges.subscribe((val: string) => {

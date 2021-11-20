@@ -3,9 +3,9 @@
 }
 
 $size: 72px;
-$border-size: 8px;
+$border-size: 7px;
 //$color: #8c30f5;
-$color: #ffc278;
+$color: #F1E4FF;
 
 @function circle-position($size, $border-size, $coordinate) {
   $center: ($size / 2) - $border-size - ($border-size / 2);
