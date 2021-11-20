@@ -253,17 +253,30 @@
 }
 
 .no__repos__found {
+  margin-top: 35px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .watermark {
+    position: absolute;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 90px;
+    margin: 0;
+    padding: 0;
+    color: #f4f5f7;
+    z-index: -1;
+    transform: translateY(-32%);
+  }
   h3 {
     margin: 0;
     padding: 0;
     font-family: Inter;
     font-style: normal;
-    font-weight: 800;
-    font-size: 48px;
+    font-weight: 700;
+    font-size: 36px;
     line-height: 64px;
     text-align: center;
     color: #000000;
