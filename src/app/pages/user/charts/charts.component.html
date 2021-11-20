@@ -73,9 +73,9 @@
 
 <ng-template #mostStarred>
   <canvas
-    *ngIf="mostStarredReposCharData; else noDataProvided"
+    *ngIf="mostStarredReposChartData; else noDataProvided"
     baseChart
-    [data]="mostStarredReposCharData"
+    [data]="mostStarredReposChartData"
     [labels]="mostStarredReposChartLabels"
     [options]="mostStarredReposChartOptions"
     [colors]="mostStarredReposChartColors"

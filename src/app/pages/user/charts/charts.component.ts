@@ -67,7 +67,7 @@ export class ChartsComponent implements OnInit {
     },
   };
   public mostStarredReposChartLabels: Label[];
-  public mostStarredReposCharData: SingleDataSet;
+  public mostStarredReposChartData: SingleDataSet;
   public mostStarredReposChartColors: Colors;
 
   // Stars per Language Chart
@@ -96,6 +96,9 @@ export class ChartsComponent implements OnInit {
         const mostUsedLanguagesData = buildTopLanguagesChart(this.repositories);
         this.topLanaguagesChartLabels = mostUsedLanguagesData[0] as Label[];
         this.topLanaguagesChartData = mostUsedLanguagesData[1] as SingleDataSet;
+        if (this.topLanaguagesChartData.length == 0) {
+          this.topLanaguagesChartData = undefined;
+        }
         this.topLanguagesChartColors = [
           {
             backgroundColor: mostUsedLanguagesData[2],
@@ -108,8 +111,11 @@ export class ChartsComponent implements OnInit {
         );
         this.mostStarredReposChartLabels =
           mostStarredReposChartData[0] as Label[];
-        this.mostStarredReposCharData =
+        this.mostStarredReposChartData =
           mostStarredReposChartData[1] as SingleDataSet;
+        if (this.mostStarredReposChartData.length == 0) {
+          this.mostStarredReposChartData = undefined;
+        }
         this.mostStarredReposChartColors = [
           {
             backgroundColor: mostStarredReposChartColors,
@@ -123,6 +129,9 @@ export class ChartsComponent implements OnInit {
         this.starsPerLanguageChartLabels = starsPerLanguageData[0] as Label[];
         this.starsPerLanguageChartData =
           starsPerLanguageData[1] as SingleDataSet;
+        if (this.starsPerLanguageChartData.length == 0) {
+          this.starsPerLanguageChartData = undefined;
+        }
         this.starsPerLanguageChartColors = [
           {
             backgroundColor: starsPerLanguageData[2],
