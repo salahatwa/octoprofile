@@ -17,7 +17,7 @@
         <p>Your most used languages</p>
       </div>
       <div class="chart">
-        <div class="spinner" *ngIf="loadingRepos; else topLanaguages">
+        <div *ngIf="loadingRepos; else topLanaguages">
           <spinner></spinner>
         </div>
       </div>
@@ -34,7 +34,7 @@
       </div>
 
       <div class="chart">
-        <div class="spinner" *ngIf="loadingRepos; else mostStarred">
+        <div *ngIf="loadingRepos; else mostStarred">
           <spinner></spinner>
         </div>
       </div>
@@ -50,7 +50,7 @@
         <p>Number of stars per language</p>
       </div>
       <div class="chart">
-        <div class="spinner" *ngIf="loadingRepos; else starsPerLanguage">
+        <div *ngIf="loadingRepos; else starsPerLanguage">
           <spinner></spinner>
         </div>
       </div>

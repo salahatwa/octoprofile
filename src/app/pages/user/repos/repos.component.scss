@@ -6,7 +6,7 @@
   justify-content: center;
   width: 100%;
   background-color: #d5fafc;
-  margin: 100px 0;
+  margin: 100px 0 0 0;
   .container {
     @include flexCenter();
     flex-direction: column;
@@ -227,6 +227,8 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-top: 100px;
+  box-sizing: border-box;
   .container {
     display: flex;
     justify-content: flex-start;
@@ -281,4 +283,9 @@
       line-height: 24px;
     }
   }
+}
+
+.spinner {
+  margin-top: 50px;
+  margin-bottom: 150px;
 }

@@ -77,7 +77,12 @@ export class ReposComponent implements OnInit {
       window.innerWidth < 800 ? 'Search...' : 'The name of the repository';
 
     this.loadingRepos = true;
-    this.userService.repos.subscribe((repos: RepositoryI[]) => {
+    this.userService.repos.subscribe((repos: RepositoryI[] | null) => {
+      if (repos == null) {
+        this.loadingRepos = false;
+        return;
+      }
+
       // Get repos from user service
       this.repositories = [...repos];
       this.globalRepos = [...repos];

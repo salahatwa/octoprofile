@@ -1,11 +1,6 @@
-:host {
-  box-sizing: inherit !important;
-}
-
 $size: 72px;
 $border-size: 7px;
-//$color: #8c30f5;
-$color: #F1E4FF;
+$color: #f1e4ff;
 
 @function circle-position($size, $border-size, $coordinate) {
   $center: ($size / 2) - $border-size - ($border-size / 2);
@@ -27,9 +22,7 @@ $color: #F1E4FF;
   border-radius: 50%;
   position: relative;
   animation: loader-rotate 1s linear infinite;
-  top: 50%;
-  margin: -28px auto 0;
-  box-sizing: inherit !important;
+  box-sizing: border-box !important;
 }
 .spinner::after {
   content: "";
@@ -40,7 +33,7 @@ $color: #F1E4FF;
   position: absolute;
   top: circle-position($size, $border-size, y);
   left: circle-position($size, $border-size, x);
-  box-sizing: inherit !important;
+  box-sizing: border-box !important;
 }
 
 @keyframes loader-rotate {
