@@ -79,7 +79,7 @@ export class ChartsComponent implements OnInit {
     this.route.queryParams.subscribe((params) => {
       const id: string = params['id'];
 
-      this.userService.getUserRepos(id).subscribe((repos: RepositoryI[]) => {
+      this.userService.getUserRepos(id).then((repos: RepositoryI[]) => {
         this.userService.repos.next(repos);
         this.repositories = repos;
 
