@@ -1,6 +1,6 @@
-import { UserNotFoundComponent } from './main/pages/user-not-found/user-not-found.component';
-import { UserComponent } from './main/pages/user/user.component';
-import { HomeComponent } from './main/pages/home/home.component';
+import { UserNotFoundComponent } from './pages/user-not-found/user-not-found.component';
+import { UserComponent } from './pages/user/user.component';
+import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 

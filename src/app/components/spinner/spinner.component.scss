@@ -1,0 +1,46 @@
+$size: 72px;
+$border-size: 7px;
+$color: #f1e4ff;
+
+@function circle-position($size, $border-size, $coordinate) {
+  $center: ($size / 2) - $border-size - ($border-size / 2);
+  $half-size-border: ($size / 2) - $border-size + ($border-size / 2);
+  // root value sqrt(2)/2 = 0.70710678118
+  $root: 0.70710678118;
+  @if $coordinate == y {
+    @return round($center - ($half-size-border * $root));
+  } @else {
+    @return round($center + ($half-size-border * $root));
+  }
+}
+
+.spinner {
+  width: $size;
+  height: $size;
+  border: $border-size solid $color;
+  border-right-color: transparent;
+  border-radius: 50%;
+  position: relative;
+  animation: loader-rotate 1s linear infinite;
+  box-sizing: border-box !important;
+}
+.spinner::after {
+  content: "";
+  width: $border-size;
+  height: $border-size;
+  background: $color;
+  border-radius: 50%;
+  position: absolute;
+  top: circle-position($size, $border-size, y);
+  left: circle-position($size, $border-size, x);
+  box-sizing: border-box !important;
+}
+
+@keyframes loader-rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

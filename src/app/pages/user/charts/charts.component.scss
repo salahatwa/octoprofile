@@ -1,0 +1,141 @@
+@import "./../../../styles/colors";
+@import "./../../../styles/mixins";
+
+:host {
+  width: 100%;
+  position: relative;
+  @include flexCenter();
+}
+
+.title--section {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2,
+  p {
+    @include flexCenter();
+    margin: 0;
+    padding: 0;
+  }
+  h2 {
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 64px;
+    color: $gray900;
+    @media (max-width: 800px) {
+      font-size: 32px;
+      line-height: 42px;
+    }
+  }
+  p {
+    font-weight: normal;
+    font-size: 18px;
+    @media (max-width: 800px) {
+      font-size: 16px;
+    }
+    line-height: 32px;
+    color: $gray900;
+  }
+}
+
+.container {
+  @media (max-width: 1100px) {
+    width: 788px;
+  }
+  @media (max-width: 900px) {
+    width: 700px;
+  }
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: -60px;
+  }
+}
+
+.charts--wrapper {
+  margin-top: 64px;
+  display: flex;
+  gap: 28px;
+  @media (max-width: 1100px) {
+    flex-wrap: wrap;
+  }
+  @media (max-width: 800px) {
+    width: 336px;
+    justify-content: center;
+  }
+  .chart--card {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 24px;
+    width: 380px;
+    height: 450px;
+    @media (max-width: 1366px) {
+      width: 364px;
+    }
+    @media (max-width: 1300px) {
+      width: 348px;
+      height: 420px;
+    }
+    @media (max-width: 1200px) {
+      width: 314px;
+      height: 400px;
+    }
+    @media (max-width: 1100px) {
+      width: 380px;
+      height: 450px;
+    }
+    @media (max-width: 900px) {
+      width: 336px;
+      height: 400px;
+    }
+    background: #ffffff;
+    box-shadow: 0px 10px 20px rgba(41, 41, 42, 0.07);
+    border-radius: 8px;
+  }
+  .card--heading {
+    h4,
+    p {
+      margin: 0;
+      padding: 0;
+    }
+    h4 {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 32px;
+      color: $gray900;
+    }
+    p {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 26px;
+      color: $gray900;
+    }
+  }
+}
+
+.chart {
+  flex-grow: 1;
+  @include flexCenter();
+  width: 100%;
+  height: 100%;
+  box-sizing: inherit;
+}
+
+.circle-bg {
+  width: 540px;
+  height: 540px;
+  position: absolute;
+  transform: translate(70%, 0%);
+  z-index: -1;
+  @media (max-width: 1366px) {
+    transform: translate(50%, 0%);
+  }
+  @media (max-width: 1100px) {
+    transform: translate(40%, -40%);
+  }
+}
