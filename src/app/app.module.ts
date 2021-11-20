@@ -16,6 +16,7 @@ import { ReposComponent } from './pages/user/repos/repos.component';
 import { JwPaginationModule } from 'jw-angular-pagination';
 import { RepoCardComponent } from './pages/user/repos/repo-card/repo-card.component';
 import { UserNotFoundComponent } from './pages/user-not-found/user-not-found.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { UserNotFoundComponent } from './pages/user-not-found/user-not-found.com
     ReposComponent,
     RepoCardComponent,
     UserNotFoundComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

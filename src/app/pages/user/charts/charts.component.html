@@ -17,16 +17,9 @@
         <p>Your most used languages</p>
       </div>
       <div class="chart">
-        <canvas
-          *ngIf="topLanaguagesChartData; else noDataProvided"
-          baseChart
-          [data]="topLanaguagesChartData"
-          [labels]="topLanaguagesChartLabels"
-          chartType="pie"
-          [options]="topLanguagesChartOptions"
-          [colors]="topLanguagesChartColors"
-        >
-        </canvas>
+        <div class="spinner" *ngIf="loadingRepos; else topLanaguages">
+          <spinner></spinner>
+        </div>
       </div>
     </div>
     <div
@@ -39,17 +32,11 @@
         <h4>Most starred</h4>
         <p>Your most starred repositories</p>
       </div>
+
       <div class="chart">
-        <canvas
-          *ngIf="mostStarredReposCharData; else noDataProvided"
-          baseChart
-          [data]="mostStarredReposCharData"
-          [labels]="mostStarredReposChartLabels"
-          [options]="mostStarredReposChartOptions"
-          [colors]="mostStarredReposChartColors"
-          chartType="bar"
-        >
-        </canvas>
+        <div class="spinner" *ngIf="loadingRepos; else mostStarred">
+          <spinner></spinner>
+        </div>
       </div>
     </div>
     <div
@@ -63,20 +50,52 @@
         <p>Number of stars per language</p>
       </div>
       <div class="chart">
-        <canvas
-          baseChart
-          *ngIf="starsPerLanguageChartData; else noDataProvided"
-          [data]="starsPerLanguageChartData"
-          [options]="topLanguagesChartOptions"
-          [labels]="starsPerLanguageChartLabels"
-          [colors]="starsPerLanguageChartColors"
-          chartType="doughnut"
-        >
-        </canvas>
+        <div class="spinner" *ngIf="loadingRepos; else starsPerLanguage">
+          <spinner></spinner>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<ng-template #topLanaguages>
+  <canvas
+    *ngIf="topLanaguagesChartData; else noDataProvided"
+    baseChart
+    [data]="topLanaguagesChartData"
+    [labels]="topLanaguagesChartLabels"
+    chartType="pie"
+    [options]="topLanguagesChartOptions"
+    [colors]="topLanguagesChartColors"
+  >
+  </canvas>
+</ng-template>
+
+<ng-template #mostStarred>
+  <canvas
+    *ngIf="mostStarredReposCharData; else noDataProvided"
+    baseChart
+    [data]="mostStarredReposCharData"
+    [labels]="mostStarredReposChartLabels"
+    [options]="mostStarredReposChartOptions"
+    [colors]="mostStarredReposChartColors"
+    chartType="bar"
+  >
+  </canvas>
+</ng-template>
+
+<ng-template #starsPerLanguage>
+  <canvas
+    baseChart
+    *ngIf="starsPerLanguageChartData; else noDataProvided"
+    [data]="starsPerLanguageChartData"
+    [options]="topLanguagesChartOptions"
+    [labels]="starsPerLanguageChartLabels"
+    [colors]="starsPerLanguageChartColors"
+    chartType="doughnut"
+  >
+  </canvas>
+</ng-template>
 
 <ng-template #noDataProvided>
   <p [ngStyle]="{ color: '#969bab', cursor: 'default', 'user-select': 'none' }">

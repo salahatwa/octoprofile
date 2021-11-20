@@ -25,6 +25,8 @@ import {
   styleUrls: ['./charts.component.scss'],
 })
 export class ChartsComponent implements OnInit {
+  public loadingRepos: boolean = true;
+
   constructor(private userService: UserService, private route: ActivatedRoute) {
     monkeyPatchChartJsTooltip();
     monkeyPatchChartJsLegend();
@@ -76,10 +78,11 @@ export class ChartsComponent implements OnInit {
   ngOnInit(): void {
     AOS.init();
 
+    this.loadingRepos = true;
     this.route.queryParams.subscribe((params) => {
       const id: string = params['id'];
 
-      this.userService.getUserRepos(id).then((repos: RepositoryI[]) => {
+      this.userService.getUserRepos(id).subscribe((repos: RepositoryI[]) => {
         this.userService.repos.next(repos);
         this.repositories = repos;
 
@@ -119,6 +122,8 @@ export class ChartsComponent implements OnInit {
             backgroundColor: starsPerLanguageData[2],
           },
         ] as Colors;
+
+        //this.loadingRepos = false;
       });
     });
   }

@@ -22,38 +22,32 @@ export class UserService {
     return this.http.get<UserI>(`https://api.github.com/users/${user}`);
   }
 
-  public async getUserRepos(user: string): Promise<RepositoryI[]> {
+  public getUserRepos(user: string): Observable<RepositoryI[]> {
     this.loadingRepos.next(true);
     // will return one observable that contains all the repos after concating them to each other:
+    return this.getUserData(user).pipe(
+      switchMap((data: UserI) => {
+        //public_repos is the amt of repos the user has
+        const pages: number = Math.ceil(data.public_repos / 100);
 
-    const repos: RepositoryI[] = await this.getUserData(user)
-      .pipe(
-        switchMap((data: UserI) => {
-          //public_repos is the amt of repos the user has
-          const pages: number = Math.ceil(data.public_repos / 100);
-
-          // forkJoin will emit the result as (RepositoryI[][]) once all the sub-observables are completed:
-          return forkJoin(
-            Array.from(new Array(pages)).map((_, page: number) =>
-              this.http.get<RepositoryI[]>(
-                `https://api.github.com/users/${user}/repos?page=${
-                  page + 1
-                }&per_page=100`
-              )
+        // forkJoin will emit the result as (RepositoryI[][]) once all the sub-observables are completed:
+        return forkJoin(
+          Array.from(new Array(pages)).map((_, page: number) =>
+            this.http.get<RepositoryI[]>(
+              `https://api.github.com/users/${user}/repos?page=${
+                page + 1
+              }&per_page=100`
             )
-          ).pipe(
-            // will reduce the RepositoryI[][] to be RepositoryI[] after concating them to each other:
-            map((res: RepositoryI[][]) =>
-              res.reduce((acc: RepositoryI[], value: RepositoryI[]) => {
-                return acc.concat(value);
-              }, [])
-            )
-          );
-        })
-      )
-      .toPromise();
-
-    this.loadingRepos.next(false);
-    return repos;
+          )
+        ).pipe(
+          // will reduce the RepositoryI[][] to be RepositoryI[] after concating them to each other:
+          map((res: RepositoryI[][]) =>
+            res.reduce((acc: RepositoryI[], value: RepositoryI[]) => {
+              return acc.concat(value);
+            }, [])
+          )
+        );
+      })
+    );
   }
 }
