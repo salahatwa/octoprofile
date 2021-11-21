@@ -126,12 +126,15 @@ export class ChartsComponent implements OnInit {
         const starsPerLanguageData = buildStarsPerLanguageChart(
           this.repositories
         );
+
         this.starsPerLanguageChartLabels = starsPerLanguageData[0] as Label[];
         this.starsPerLanguageChartData =
           starsPerLanguageData[1] as SingleDataSet;
+
         if (this.starsPerLanguageChartData.length == 0) {
           this.starsPerLanguageChartData = undefined;
         }
+
         this.starsPerLanguageChartColors = [
           {
             backgroundColor: starsPerLanguageData[2],

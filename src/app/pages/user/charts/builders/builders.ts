@@ -1,7 +1,4 @@
-import {
-  LanguageStat,
-  RepositoryI,
-} from 'src/app/models/repository.model';
+import { LanguageStat, RepositoryI } from 'src/app/models/repository.model';
 import Chroma from '@carlos-dubon/chroma';
 import { Mode } from '@carlos-dubon/chroma/lib/models/mode.enum';
 import { opacity } from 'src/app/models/language.colors';
@@ -117,7 +114,8 @@ export function buildStarsPerLanguageChart(
 
   starsPerLanguage = starsPerLanguage
     .sort((a, b) => (a.stargazers < b.stargazers ? 1 : -1))
-    .slice(0, 10); // Sort by number of stargazers and keep a max of 10
+    .slice(0, 10) // Sort by number of stargazers and keep a max of 10
+    .filter((repo) => repo.stargazers != 0); // remove repos that don't have stars
 
   let labels: string[] = [];
   let stargazers: number[] = [];
