@@ -12,7 +12,7 @@
 <img src="https://img.shields.io/badge/Angular-DD0031?style=flat&logo=angular&logoColor=white" alt="Angular">
 <img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white" alt="TypeScript">
 <img src="https://img.shields.io/badge/Sass-CC6699?style=flat&logo=sass&logoColor=white" alt="Sass">
-<img src="https://img.shields.io/badge/GitHub Pages-100000?style=flat&logo=github&logoColor=white" alt="GitHub Pages">
+<img src="https://img.shields.io/badge/Netlify-00C7B7?style=flat&logo=netlify&logoColor=white" alt="Netlify">
 </p>
 
 <p align="center">
