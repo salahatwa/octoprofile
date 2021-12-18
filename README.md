@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-<a href="https://carlos-dubon.github.io/octoprofile/" target="_blank">https://carlos-dubon.github.io/octoprofile/</a>
+<a href="https://myoctoprofile.netlify.app/" target="_blank">https://myoctoprofile.netlify.app</a>
 </center>
 </p>
 
