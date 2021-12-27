@@ -1,7 +1,7 @@
 # OctoProfile
 
 <p align="center">
-<img src="readme/logo.svg" alt="Logo" width="100" height="100">
+<img src=".github/readme/logo.svg" alt="Logo" width="100" height="100">
 </p>
 
 <p align="center"><strong>A nicer look at GitHub profiles.</strong></p>
@@ -22,4 +22,4 @@
 
 OctoProfile gives a **nicer look** at your GitHub profile and repositories. With **data visualizations** of your languages and stars. You can **sort through your repos** by name, number of stars, forks and size. I built this tool so that anyone can showcase their GitHub profile in a clean and modern way.
 
-![page](readme/page.png)
+![page](.github/readme/page.png)
